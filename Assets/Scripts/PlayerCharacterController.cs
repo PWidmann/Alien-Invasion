@@ -16,17 +16,11 @@ public class PlayerCharacterController: MonoBehaviour
     float speedSmoothTime = 0.1f;
     float speedSmoothVelocity;
 
-    float animSmoothTime = 0.1f;
-    float animSmoothVelocity;
-
     float currentSpeed;
     float velocityY;
     private float targetRotation;
 
-    //Bow Aiming Movement
-    public float horizontalMovement = 0f;
-    public float verticalMovement = 0f;
-    private bool isAiming = false;
+    private static bool isAiming = false;
 
     //References
     Animator animator;
@@ -35,10 +29,7 @@ public class PlayerCharacterController: MonoBehaviour
     public float angle;
     float animationSpeedPercent;
 
-    float currentXanimMovement;
-    float currentZanimMovement;
-
-    public Camera cam;
+    public static bool IsAiming { get => isAiming; set => isAiming = value; }
 
     void Start()
     {
@@ -61,18 +52,23 @@ public class PlayerCharacterController: MonoBehaviour
 
         if (Input.GetMouseButton(1))
         {
-            isAiming = true;
+            IsAiming = true;
             runSpeed = 3f;
             animator.SetBool("isAiming", true);
+            
         }
         else
         {
-            isAiming = false;
+            IsAiming = false;
             runSpeed = 8f;
             animator.SetBool("isAiming", false);
         }
 
-        Debug.Log("Controller velocity magnitude: " + controller.velocity.magnitude);
+        if (isAiming  && WeaponHandler.Instance.pistolActive && Input.GetMouseButtonDown(0))
+        {
+            animator.SetTrigger("PistolShoot");
+            SoundManager.instance.PlaySound(0);
+        }
     }
 
     void Move(Vector2 inputDir)
@@ -81,11 +77,11 @@ public class PlayerCharacterController: MonoBehaviour
         //Gravity
         velocityY += Time.deltaTime * gravity;
 
-        if(isAiming)
+        if(IsAiming)
             AimToMouse();
 
         //Player Rotation
-        if (inputDir != Vector2.zero && !isAiming)
+        if (inputDir != Vector2.zero && !IsAiming)
         {
             // Turn the player in movement direction when not aiming
             targetRotation = Mathf.Atan2(inputDir.x, inputDir.y) * Mathf.Rad2Deg + cameraT.eulerAngles.y;
@@ -96,7 +92,7 @@ public class PlayerCharacterController: MonoBehaviour
         float targetSpeed = runSpeed * inputDir.magnitude;
         currentSpeed = Mathf.SmoothDamp(currentSpeed, targetSpeed, ref speedSmoothVelocity, speedSmoothTime);
 
-        if (isAiming)
+        if (IsAiming)
         {
             // Aiming movement
             Vector3 targetDirection = new Vector3(inputDir.x, 0, inputDir.y);
