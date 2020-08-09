@@ -22,14 +22,21 @@ public class PlayerCharacterController: MonoBehaviour
     float velocityY;
     private float targetRotation;
 
-    private static bool isAiming = false;
+    
 
     //References
     Animator animator;
     Transform cameraT;
+    RaycastHit hitInfo;
     CharacterController controller;
     public float angle;
     float animationSpeedPercent;
+
+
+    //Aiming
+    private static bool isAiming = false;
+    Transform chest; // For rotating aiming animation
+    Vector3 aimAnimOffset = new Vector3(15, 35, 15); // Best compromise of far and near target aiming rotation
 
     public static bool IsAiming { get => isAiming; set => isAiming = value; }
 
@@ -44,6 +51,8 @@ public class PlayerCharacterController: MonoBehaviour
         animator = GetComponent<Animator>();
         cameraT = Camera.main.transform;
         controller = GetComponent<CharacterController>();
+
+        chest = animator.GetBoneTransform(HumanBodyBones.Chest);
     }
 
     void Update()
@@ -82,6 +91,16 @@ public class PlayerCharacterController: MonoBehaviour
             WeaponHandler.Instance.muzzleActive = true;
             WeaponHandler.Instance.muzzleFlash.gameObject.SetActive(true);
             WeaponHandler.Instance.muzzleFlash.Play();
+        }
+    }
+
+    private void LateUpdate()
+    {
+        // point both arms to shooting target while aiming.
+        if (isAiming && WeaponHandler.Instance.pistolActive)
+        {
+            chest.LookAt(hitInfo.point);
+            chest.rotation = chest.rotation * Quaternion.Euler(aimAnimOffset);
         }
     }
 
@@ -130,7 +149,7 @@ public class PlayerCharacterController: MonoBehaviour
         {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
-            if (Physics.Raycast(ray, out RaycastHit hitInfo, maxDistance: 300f))
+            if (Physics.Raycast(ray, out hitInfo, maxDistance: 300f))
             {
                 Vector3 target = hitInfo.point;
                 target.y = transform.position.y;
@@ -151,10 +170,10 @@ public class PlayerCharacterController: MonoBehaviour
         }
         
 
-        //Reset jumping
+        //Grounded
         if (controller.isGrounded)
         {
-            velocityY = 0;
+            velocityY = 0; // Deactivate gravity
         }
     }
 }
