@@ -9,6 +9,8 @@ public class WeaponHandler : MonoBehaviour
     public GameObject pistolObject;
     public ParticleSystem muzzleFlash;
 
+    public bool muzzleActive = false;
+    float muzzleTimer = 0.1f;
 
     public Animator playerAnimator;
     public Texture2D crossHair;
@@ -28,7 +30,7 @@ public class WeaponHandler : MonoBehaviour
         {
             pistolActive = !pistolActive;
             SoundManager.instance.PlaySound(1);
-            muzzleFlash.Play();
+            
         }
 
         PistolActive();
@@ -40,6 +42,18 @@ public class WeaponHandler : MonoBehaviour
         else
         {
             Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto);
+        }
+
+        if (muzzleActive)
+        {
+            muzzleTimer -= Time.deltaTime;
+
+            if (muzzleTimer <= 0)
+            {
+                muzzleActive = false;
+                muzzleFlash.gameObject.SetActive(false);
+                muzzleTimer = 0.1f;
+            }
         }
     }
 

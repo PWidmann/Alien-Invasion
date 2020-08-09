@@ -122,7 +122,7 @@ NavMeshSettings:
     preserveTilesOutsideBounds: 0
     debug:
       m_Flags: 0
-  m_NavMeshData: {fileID: 0}
+  m_NavMeshData: {fileID: 23800000, guid: 48d3ca4e8d8de334b8984842bd24e00e, type: 2}
 --- !u!1 &412146213
 GameObject:
   m_ObjectHideFlags: 0
@@ -154,6 +154,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pistolObject: {fileID: 919132147897431862}
   muzzleFlash: {fileID: 2287185320043780372}
+  muzzleActive: 0
   playerAnimator: {fileID: 975328298}
   crossHair: {fileID: 2800000, guid: 8f4d5b153b661fe4f832de8732befdb8, type: 3}
   pistolActive: 0
@@ -560,6 +561,7 @@ MonoBehaviour:
   inputDir: {x: 0, y: 0}
   velocity: {x: 0, y: 0, z: 0}
   turnSmoothVelocity: 0
+  playerPosition: {x: 0, y: 0, z: 0}
   angle: 0
 --- !u!143 &975328297
 CharacterController:
@@ -615,7 +617,7 @@ GameObject:
   m_TagString: Floor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!64 &1061184080
 MeshCollider:
@@ -687,7 +689,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1061184079}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 10, y: 1, z: 10}
   m_Children: []
@@ -1241,9 +1243,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 73.399
       objectReference: {fileID: 0}
+    - target: {fileID: 5214042890135674776, guid: 628e8d812bcbfed4ca15fb2becf8ee74, type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5214042890135674778, guid: 628e8d812bcbfed4ca15fb2becf8ee74, type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5214042890135674780, guid: 628e8d812bcbfed4ca15fb2becf8ee74, type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5214042890151364350, guid: 628e8d812bcbfed4ca15fb2becf8ee74, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5214042890161540056, guid: 628e8d812bcbfed4ca15fb2becf8ee74, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 628e8d812bcbfed4ca15fb2becf8ee74, type: 3}

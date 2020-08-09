@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 public class PlayerCharacterController: MonoBehaviour
 {
-
+    public static PlayerCharacterController Instance;
     //Movement
     [Header("Movement")]
     public Vector2 inputDir;
@@ -15,6 +15,8 @@ public class PlayerCharacterController: MonoBehaviour
     public float turnSmoothVelocity;
     float speedSmoothTime = 0.1f;
     float speedSmoothVelocity;
+    public Vector3 playerPosition;
+
 
     float currentSpeed;
     float velocityY;
@@ -31,6 +33,11 @@ public class PlayerCharacterController: MonoBehaviour
 
     public static bool IsAiming { get => isAiming; set => isAiming = value; }
 
+    private void Awake()
+    {
+        if (Instance == null)
+            Instance = this;
+    }
     void Start()
     {
         // References
@@ -41,6 +48,7 @@ public class PlayerCharacterController: MonoBehaviour
 
     void Update()
     {
+        playerPosition = transform.position;
         //Movement
         Vector2 input = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
         inputDir = input.normalized;
@@ -64,10 +72,16 @@ public class PlayerCharacterController: MonoBehaviour
             animator.SetBool("isAiming", false);
         }
 
+        // Shooting Pistol
         if (isAiming  && WeaponHandler.Instance.pistolActive && Input.GetMouseButtonDown(0))
         {
             animator.SetTrigger("PistolShoot");
             SoundManager.instance.PlaySound(0);
+
+            //Handling muzzle flash
+            WeaponHandler.Instance.muzzleActive = true;
+            WeaponHandler.Instance.muzzleFlash.gameObject.SetActive(true);
+            WeaponHandler.Instance.muzzleFlash.Play();
         }
     }
 
@@ -107,6 +121,7 @@ public class PlayerCharacterController: MonoBehaviour
         { 
             velocity = transform.forward * currentSpeed + Vector3.up * velocityY;
             controller.Move(velocity * Time.deltaTime);
+            
         }
 
         
