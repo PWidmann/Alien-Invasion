@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Runtime.Remoting.Lifetime;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -37,6 +38,7 @@ public class PlayerCharacterController: MonoBehaviour
     private static bool isAiming = false;
     Transform chest; // For rotating aiming animation
     Vector3 aimAnimOffset = new Vector3(15, 35, 15); // Best compromise of far and near target aiming rotation
+    Quaternion aimRotation;
 
     public static bool IsAiming { get => isAiming; set => isAiming = value; }
 
@@ -52,10 +54,29 @@ public class PlayerCharacterController: MonoBehaviour
         cameraT = Camera.main.transform;
         controller = GetComponent<CharacterController>();
 
+        // For aiming animation
         chest = animator.GetBoneTransform(HumanBodyBones.Chest);
     }
 
     void Update()
+    {
+        Movement();
+        Aiming();
+        PistolShooting();
+    }
+
+    private void LateUpdate()
+    {
+        // point both arms to shooting target while aiming.
+        if (isAiming && WeaponHandler.Instance.pistolActive)
+        {
+
+            chest.LookAt(hitInfo.point);
+            aimRotation = chest.rotation * Quaternion.Euler(aimAnimOffset);
+            chest.rotation = aimRotation;
+        }
+    }
+    void Movement()
     {
         playerPosition = transform.position;
         //Movement
@@ -66,42 +87,6 @@ public class PlayerCharacterController: MonoBehaviour
         // animator
         animationSpeedPercent = currentSpeed / runSpeed;
         animator.SetFloat("speedPercent", animationSpeedPercent, speedSmoothTime, Time.deltaTime);
-
-        if (Input.GetMouseButton(1))
-        {
-            IsAiming = true;
-            runSpeed = 3f;
-            animator.SetBool("isAiming", true);
-            
-        }
-        else
-        {
-            IsAiming = false;
-            runSpeed = 8f;
-            animator.SetBool("isAiming", false);
-        }
-
-        // Shooting Pistol
-        if (isAiming  && WeaponHandler.Instance.pistolActive && Input.GetMouseButtonDown(0))
-        {
-            animator.SetTrigger("PistolShoot");
-            SoundManager.instance.PlaySound(0);
-
-            //Handling muzzle flash
-            WeaponHandler.Instance.muzzleActive = true;
-            WeaponHandler.Instance.muzzleFlash.gameObject.SetActive(true);
-            WeaponHandler.Instance.muzzleFlash.Play();
-        }
-    }
-
-    private void LateUpdate()
-    {
-        // point both arms to shooting target while aiming.
-        if (isAiming && WeaponHandler.Instance.pistolActive)
-        {
-            chest.LookAt(hitInfo.point);
-            chest.rotation = chest.rotation * Quaternion.Euler(aimAnimOffset);
-        }
     }
 
     void Move(Vector2 inputDir)
@@ -174,6 +159,51 @@ public class PlayerCharacterController: MonoBehaviour
         if (controller.isGrounded)
         {
             velocityY = 0; // Deactivate gravity
+        }
+    }
+
+    void Aiming()
+    {
+        if (Input.GetMouseButton(1))
+        {
+            IsAiming = true;
+            runSpeed = 3f;
+            animator.SetBool("isAiming", true);
+
+        }
+        else
+        {
+            IsAiming = false;
+            runSpeed = 8f;
+            animator.SetBool("isAiming", false);
+        }
+    }
+
+    void PistolShooting()
+    {
+        // Shooting Pistol
+        if (isAiming && WeaponHandler.Instance.pistolActive && Input.GetMouseButtonDown(0))
+        {
+            animator.SetTrigger("PistolShoot");
+            SoundManager.instance.PlaySound(0);
+
+            //Handling muzzle flash
+            WeaponHandler.Instance.muzzleActive = true;
+            WeaponHandler.Instance.muzzleFlash.Play();
+
+            //Body Shot
+            if (hitInfo.transform.tag == "AlienBody")
+            {
+                Debug.Log("Body shot");
+                hitInfo.transform.GetComponent<AlienController>().TakeDamage(1);
+            }
+
+            // Head Shot
+            if (hitInfo.collider.transform.tag == "AlienHead")
+            {
+                Debug.Log("Head shot");
+                hitInfo.collider.transform.GetComponent<AlienHead>().alien.GetComponent<AlienController>().TakeDamage(3);
+            }
         }
     }
 }

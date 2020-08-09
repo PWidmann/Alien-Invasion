@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Floor
   - WayPoint
+  - AlienBody
+  - AlienHead
   layers:
   - Default
   - TransparentFX

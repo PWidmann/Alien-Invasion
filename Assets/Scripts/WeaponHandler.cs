@@ -26,6 +26,7 @@ public class WeaponHandler : MonoBehaviour
 
     private void Update()
     {
+        //Equip pistol
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
             pistolActive = !pistolActive;
@@ -46,6 +47,7 @@ public class WeaponHandler : MonoBehaviour
 
         if (muzzleActive)
         {
+            muzzleFlash.gameObject.SetActive(true);
             muzzleTimer -= Time.deltaTime;
 
             if (muzzleTimer <= 0)
