@@ -32,7 +32,6 @@ public class AlienController : MonoBehaviour
         {
             GetComponent<CharacterController>().enabled = false;
             animator.enabled = false;
-            
         }
     }
 }

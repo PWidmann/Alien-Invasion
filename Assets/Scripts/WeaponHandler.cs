@@ -31,19 +31,12 @@ public class WeaponHandler : MonoBehaviour
         {
             pistolActive = !pistolActive;
             SoundManager.instance.PlaySound(1);
-            
         }
 
         PistolActive();
+        SetCursor();
 
-        if (PlayerCharacterController.IsAiming && pistolActive)
-        {
-            Cursor.SetCursor(crossHair, new Vector2(25f, 25f), CursorMode.Auto);
-        }
-        else
-        {
-            Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto);
-        }
+
 
         if (muzzleActive)
         {
@@ -70,6 +63,19 @@ public class WeaponHandler : MonoBehaviour
         {
             playerAnimator.SetBool("pistolActive", false);
             pistolObject.SetActive(false);
+        }
+    }
+
+    void SetCursor()
+    {
+        // Set crosshair cursor while aiming
+        if (PlayerCharacterController.IsAiming && pistolActive)
+        {
+            Cursor.SetCursor(crossHair, new Vector2(25f, 25f), CursorMode.Auto);
+        }
+        else
+        {
+            Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto);
         }
     }
 }

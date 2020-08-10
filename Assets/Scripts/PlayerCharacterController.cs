@@ -8,31 +8,33 @@ public class PlayerCharacterController: MonoBehaviour
     public static PlayerCharacterController Instance;
     //Movement
     [Header("Movement")]
-    public Vector2 inputDir;
-    public Vector3 velocity;
+    Vector3 playerPosition;
+    Vector2 inputDir;
+    Vector3 velocity;
     float runSpeed = 8;
     float gravity = -10;
     float turnSmoothTime = 0.2f;
-    public float turnSmoothVelocity;
+    float turnSmoothVelocity;
     float speedSmoothTime = 0.1f;
     float speedSmoothVelocity;
-    public Vector3 playerPosition;
-
-
     float currentSpeed;
     float velocityY;
     private float targetRotation;
 
-    
+    public GameObject pistolEndingPosition;
 
     //References
     Animator animator;
     Transform cameraT;
     RaycastHit hitInfo;
     CharacterController controller;
-    public float angle;
+    float angle;
     float animationSpeedPercent;
 
+
+    // Weapons
+    float pistolShootTimer = 0.5f;
+    bool pistolReady = true;
 
     //Aiming
     private static bool isAiming = false;
@@ -133,6 +135,7 @@ public class PlayerCharacterController: MonoBehaviour
         void AimToMouse()
         {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            //ray.origin = pistolEndingPosition.transform.position;
 
             if (Physics.Raycast(ray, out hitInfo, maxDistance: 300f))
             {
@@ -140,11 +143,11 @@ public class PlayerCharacterController: MonoBehaviour
                 target.y = transform.position.y;
                 Vector3 targetDir = (target - transform.position).normalized;
 
-                Debug.DrawRay(transform.position + new Vector3(0, 1, 0), targetDir);
+                Debug.DrawRay(transform.position + new Vector3(0, 1, 0), targetDir * 2);
                 transform.LookAt(target);
 
 
-                // match target aiming vector to unrotated animation vector
+                // match target aiming vector to unrotated animation map vector
                 Vector3 newInput = new Vector3(inputDir.x, 0, inputDir.y);
                 angle = transform.eulerAngles.y - 45f;
                 Vector3 animationVector = (Quaternion.Euler(0, -angle, 0) * newInput.normalized);
@@ -181,11 +184,23 @@ public class PlayerCharacterController: MonoBehaviour
 
     void PistolShooting()
     {
+        if (!pistolReady)
+        {
+            pistolShootTimer -= Time.deltaTime;
+
+            if (pistolShootTimer <= 0)
+            {
+                pistolShootTimer = 0.5f;
+                pistolReady = true;
+            }
+        }
+
         // Shooting Pistol
-        if (isAiming && WeaponHandler.Instance.pistolActive && Input.GetMouseButtonDown(0))
+        if (isAiming && WeaponHandler.Instance.pistolActive && Input.GetMouseButtonDown(0) && pistolReady)
         {
             animator.SetTrigger("PistolShoot");
             SoundManager.instance.PlaySound(0);
+            pistolReady = false;
 
             //Handling muzzle flash
             WeaponHandler.Instance.muzzleActive = true;
@@ -204,6 +219,8 @@ public class PlayerCharacterController: MonoBehaviour
                 Debug.Log("Head shot");
                 hitInfo.collider.transform.GetComponent<AlienHead>().alien.GetComponent<AlienController>().TakeDamage(3);
             }
+
+            
         }
     }
 }
