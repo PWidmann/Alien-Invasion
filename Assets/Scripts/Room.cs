@@ -6,7 +6,10 @@ using UnityEngine;
 public class Room : MonoBehaviour
 {
 
-    public enum RoomType { StartRoom, VerticalCorridor, HorizontalCorridor, BigRoomCross};
+    public enum RoomType { StartRoom, VerticalCorridor, HorizontalCorridor, BigRoomCross, 
+                            EndNorth, EndEast, EndSouth, EndWest, 
+                            CornerEN, CornerWN, CornerES, CornerWS,
+                            MachineRoomNorth, MachineRoomEast, MachineRoomSouth, MachineRoomWest};
 
     [Header("Room Type")]
     public RoomType roomType;
@@ -25,6 +28,10 @@ public class Room : MonoBehaviour
 
     [Header("Room Connected")]
     public bool roomConnected = false;
+
+    [Header("Room Counter")]
+    public int bigRoomArmNr = 0;
+    public int corridoorNr = 0;
 
     private void Start()
     {

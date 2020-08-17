@@ -8,6 +8,7 @@ TagManager:
   - WayPoint
   - AlienBody
   - AlienHead
+  - RoomCollider
   layers:
   - Default
   - TransparentFX

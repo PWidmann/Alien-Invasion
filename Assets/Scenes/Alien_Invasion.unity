@@ -211,9 +211,9 @@ MonoBehaviour:
   m_Follow: {fileID: 1823931395}
   m_Lens:
     FieldOfView: 70
-    OrthographicSize: 12.21
+    OrthographicSize: 17
     NearClipPlane: 0.001
-    FarClipPlane: 3000
+    FarClipPlane: 1500
     Dutch: 0
     LensShift: {x: 0, y: 0}
   m_Transitions:
@@ -232,7 +232,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 491803887}
   m_LocalRotation: {x: 0.31598538, y: 0.3596048, z: -0.13088542, w: 0.8681629}
-  m_LocalPosition: {x: -12.267318, y: 17.46454, z: 0.53268516}
+  m_LocalPosition: {x: -33.157223, y: 41.13841, z: -26.987217}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1305987894}
@@ -255,7 +255,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!108 &705507994
 Light:
   m_ObjectHideFlags: 0
@@ -268,13 +268,13 @@ Light:
   m_Type: 1
   m_Shape: 0
   m_Color: {r: 1, g: 0.95686275, b: 0.8392157, a: 1}
-  m_Intensity: 1.4
+  m_Intensity: 0.4
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
   m_Shadows:
-    m_Type: 2
+    m_Type: 0
     m_Resolution: -1
     m_CustomResolution: -1
     m_Strength: 1
@@ -324,13 +324,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 705507993}
-  m_LocalRotation: {x: 0.9515156, y: -0, z: -0, w: 0.3076007}
+  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 144.171, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0
@@ -383,10 +383,10 @@ Camera:
     width: 1
     height: 1
   near clip plane: 0.001
-  far clip plane: 3000
+  far clip plane: 1500
   field of view: 70
   orthographic: 1
-  orthographic size: 12.21
+  orthographic size: 17
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -410,7 +410,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
   m_LocalRotation: {x: 0.31598538, y: 0.3596048, z: -0.13088542, w: 0.8681629}
-  m_LocalPosition: {x: -12.267318, y: 17.46454, z: 0.53268516}
+  m_LocalPosition: {x: -33.157223, y: 41.13841, z: -26.987217}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -557,9 +557,13 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 2819577182810853596, guid: c0af01bf1678d85488d368a1b8d2984e, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3200641166195067494, guid: c0af01bf1678d85488d368a1b8d2984e, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2.45
+      value: 1.51
       objectReference: {fileID: 0}
     - target: {fileID: 3200641166195067494, guid: c0af01bf1678d85488d368a1b8d2984e, type: 3}
       propertyPath: m_LocalPosition.y
@@ -567,7 +571,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3200641166195067494, guid: c0af01bf1678d85488d368a1b8d2984e, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 15.25
+      value: 7.68
       objectReference: {fileID: 0}
     - target: {fileID: 3200641166195067494, guid: c0af01bf1678d85488d368a1b8d2984e, type: 3}
       propertyPath: m_LocalRotation.x
@@ -671,7 +675,7 @@ MonoBehaviour:
   m_TargetMovementOnly: 0
   m_ScreenX: 0.5
   m_ScreenY: 0.5
-  m_CameraDistance: 27.17
+  m_CameraDistance: 64
   m_DeadZoneWidth: 0
   m_DeadZoneHeight: 0
   m_DeadZoneDepth: 0
@@ -747,16 +751,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a3bbac54c77d340499e58b78762bdfcc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bigRooms: 3
-  startclosingRooms: 30
+  bigRooms: 4
+  startclosingRooms: 20
   enemySpawnChance: 50
   startRoom: {fileID: 1692997028830512795, guid: 6b3fb08ebd8fab34e94cf77dd49b89ef, type: 3}
   horizontalCorridor: {fileID: 903954093811965132, guid: 15eea347486bd924e97b331cc9518c6e, type: 3}
   verticalCorridor: {fileID: 903954093811965132, guid: a28f27906e3ae7044b7a9adbd1941f3b, type: 3}
   bigRoomCross: {fileID: 3716176887150487389, guid: 24174ad754f6a3b40b4b6a857aab4aca, type: 3}
+  endNorth: {fileID: 1119111899604624410, guid: c89c87f79c9df6e44abc63cbaf2ccbf8, type: 3}
+  endEast: {fileID: 6323504107592024634, guid: 1f479308591638848b6ca8981759a2c5, type: 3}
+  endSouth: {fileID: 4630713921581225169, guid: 49c02c6d51b087d4e8f25f9d444fce34, type: 3}
+  endWest: {fileID: 8732747878170798137, guid: 59df728ce2695184bb6f3b60333f6273, type: 3}
+  cornerEN: {fileID: 3701181391815548841, guid: 9b668b3358e922241b63adcb53f12907, type: 3}
+  cornerES: {fileID: 6494012125200882465, guid: 3a112d4cf78fc674cb0cd3595bd6cc63, type: 3}
+  cornerWN: {fileID: 3138751315304107004, guid: bad5a11030294d342ad00cfa9601499c, type: 3}
+  cornerWS: {fileID: 4767694118880463943, guid: 472071a59bedf9d44bf576d6d6e9afc2, type: 3}
+  machineRoomNorth: {fileID: 384593330697563199, guid: 0d729b717209dc242a069d29f86870a9, type: 3}
+  machineRoomEast: {fileID: 1998536464042060287, guid: d92e79f2f2ede8f4aa59846250017103, type: 3}
+  machineRoomSouth: {fileID: 3254988936073023752, guid: 036bb557b901d28459cdbf7fb1d0fa07, type: 3}
+  machineRoomWest: {fileID: 4383296555168967526, guid: ce0d90f3b7d462043b5f7122dceb09e8, type: 3}
   levelObject: {fileID: 1854926503}
   roomsToConnect: []
   roomsCreated: 0
+  bigRoomsCreated: 0
   roomList: []
 --- !u!4 &1823931395 stripped
 Transform:
