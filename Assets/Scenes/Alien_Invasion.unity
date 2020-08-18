@@ -232,7 +232,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 491803887}
   m_LocalRotation: {x: 0.31598538, y: 0.3596048, z: -0.13088542, w: 0.8681629}
-  m_LocalPosition: {x: -33.157223, y: 41.13841, z: -26.987217}
+  m_LocalPosition: {x: -29.547218, y: 51.828403, z: -29.137213}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1305987894}
@@ -267,8 +267,8 @@ Light:
   serializedVersion: 10
   m_Type: 1
   m_Shape: 0
-  m_Color: {r: 1, g: 0.95686275, b: 0.8392157, a: 1}
-  m_Intensity: 0.4
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Intensity: 0.3
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -410,7 +410,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
   m_LocalRotation: {x: 0.31598538, y: 0.3596048, z: -0.13088542, w: 0.8681629}
-  m_LocalPosition: {x: -33.157223, y: 41.13841, z: -26.987217}
+  m_LocalPosition: {x: -29.547218, y: 51.828403, z: -29.137213}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -563,15 +563,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3200641166195067494, guid: c0af01bf1678d85488d368a1b8d2984e, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.51
+      value: 5.12
       objectReference: {fileID: 0}
     - target: {fileID: 3200641166195067494, guid: c0af01bf1678d85488d368a1b8d2984e, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 10.69
       objectReference: {fileID: 0}
     - target: {fileID: 3200641166195067494, guid: c0af01bf1678d85488d368a1b8d2984e, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 7.68
+      value: 5.53
       objectReference: {fileID: 0}
     - target: {fileID: 3200641166195067494, guid: c0af01bf1678d85488d368a1b8d2984e, type: 3}
       propertyPath: m_LocalRotation.x
@@ -751,13 +751,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a3bbac54c77d340499e58b78762bdfcc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bigRooms: 4
-  startclosingRooms: 20
+  bigRooms: 3
+  startclosingRooms: 25
   enemySpawnChance: 50
   startRoom: {fileID: 1692997028830512795, guid: 6b3fb08ebd8fab34e94cf77dd49b89ef, type: 3}
   horizontalCorridor: {fileID: 903954093811965132, guid: 15eea347486bd924e97b331cc9518c6e, type: 3}
   verticalCorridor: {fileID: 903954093811965132, guid: a28f27906e3ae7044b7a9adbd1941f3b, type: 3}
   bigRoomCross: {fileID: 3716176887150487389, guid: 24174ad754f6a3b40b4b6a857aab4aca, type: 3}
+  bossRoom: {fileID: 4805824233722635978, guid: 30b30a7610564324f82bb5d7ce001c1f, type: 3}
   endNorth: {fileID: 1119111899604624410, guid: c89c87f79c9df6e44abc63cbaf2ccbf8, type: 3}
   endEast: {fileID: 6323504107592024634, guid: 1f479308591638848b6ca8981759a2c5, type: 3}
   endSouth: {fileID: 4630713921581225169, guid: 49c02c6d51b087d4e8f25f9d444fce34, type: 3}
@@ -770,6 +771,10 @@ MonoBehaviour:
   machineRoomEast: {fileID: 1998536464042060287, guid: d92e79f2f2ede8f4aa59846250017103, type: 3}
   machineRoomSouth: {fileID: 3254988936073023752, guid: 036bb557b901d28459cdbf7fb1d0fa07, type: 3}
   machineRoomWest: {fileID: 4383296555168967526, guid: ce0d90f3b7d462043b5f7122dceb09e8, type: 3}
+  breakRoomNorth: {fileID: 4404083192700516230, guid: 238a831cb360d8e4ab67136cfe424ca1, type: 3}
+  breakRoomEast: {fileID: 2822567682158285128, guid: 1153bb1744fb95645af98284291b4ab6, type: 3}
+  breakRoomSouth: {fileID: 8453769596815871684, guid: cdffcdc85702b124cb02ccead9e2bef3, type: 3}
+  breakRoomWest: {fileID: 569719202490299096, guid: 6648be1b29d8d1e45b9d9ecb75c04adf, type: 3}
   levelObject: {fileID: 1854926503}
   roomsToConnect: []
   roomsCreated: 0
@@ -813,6 +818,8 @@ MonoBehaviour:
   audioClips:
   - {fileID: 8300000, guid: 3c71db5ee7bbd9d44b8156ff55e12ef1, type: 3}
   - {fileID: 8300000, guid: de5201ed36504a84e99a13484388b24a, type: 3}
+  - {fileID: 8300000, guid: ed75ab95d902d7e4a90931750ae6a665, type: 3}
+  - {fileID: 8300000, guid: 968fa87c5906b154183c2c1590e10a66, type: 3}
   soundSlider: {fileID: 0}
   soundValueText: {fileID: 0}
   audioSourceFX: {fileID: 963194230}

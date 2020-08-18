@@ -6,10 +6,11 @@ using UnityEngine;
 public class Room : MonoBehaviour
 {
 
-    public enum RoomType { StartRoom, VerticalCorridor, HorizontalCorridor, BigRoomCross, 
+    public enum RoomType { StartRoom, VerticalCorridor, HorizontalCorridor, BigRoomCross, BossRoom, 
                             EndNorth, EndEast, EndSouth, EndWest, 
                             CornerEN, CornerWN, CornerES, CornerWS,
-                            MachineRoomNorth, MachineRoomEast, MachineRoomSouth, MachineRoomWest};
+                            MachineRoomNorth, MachineRoomEast, MachineRoomSouth, MachineRoomWest,
+                            BreakRoomNorth, BreakRoomEast, BreakRoomSouth, BreakRoomWest};
 
     [Header("Room Type")]
     public RoomType roomType;

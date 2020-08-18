@@ -19,6 +19,7 @@ public class MapGenerator : MonoBehaviour
     public GameObject horizontalCorridor;
     public GameObject verticalCorridor;
     public GameObject bigRoomCross;
+    public GameObject bossRoom;
     public GameObject endNorth;
     public GameObject endEast;
     public GameObject endSouth;
@@ -31,6 +32,10 @@ public class MapGenerator : MonoBehaviour
     public GameObject machineRoomEast;
     public GameObject machineRoomSouth;
     public GameObject machineRoomWest;
+    public GameObject breakRoomNorth;
+    public GameObject breakRoomEast;
+    public GameObject breakRoomSouth;
+    public GameObject breakRoomWest;
 
 
 
@@ -132,20 +137,36 @@ public class MapGenerator : MonoBehaviour
             {
                 if (currentRoom.roomType == Room.RoomType.HorizontalCorridor)
                 {
-                    if (rnd < 5)
+                    if (rnd < 3) // 30%
                     {
                         SpawnRoom(Room.RoomType.HorizontalCorridor, direction);
                     }
                     else
                     {
+                        //turn corridor to the north if the first horizontal level arm
                         if (currentRoom.bigRoomArmNr == 1)
                         {
                             SpawnRoom(Room.RoomType.CornerEN, direction);
                         }
 
+                        //turn corridor to the south if last horizontal room arm
                         if (currentRoom.bigRoomArmNr == bigRooms)
                         {
                             SpawnRoom(Room.RoomType.CornerES, direction);
+                        }
+
+                        if (currentRoom.bigRoomArmNr != 1 && currentRoom.bigRoomArmNr != bigRooms)
+                        {
+                            // Close off Arm
+                            if (rnd < 5)
+                            {
+                                SpawnRoom(Room.RoomType.MachineRoomEast, direction);
+                            }
+                            else
+                            {
+                                SpawnRoom(Room.RoomType.BreakRoomEast, direction);
+                            }
+                            
                         }
                     }
                 }
@@ -156,7 +177,15 @@ public class MapGenerator : MonoBehaviour
             }
             else
             {
-                SpawnRoom(Room.RoomType.MachineRoomEast, direction);
+                // Close off Arm
+                if (rnd < 5)
+                {
+                    SpawnRoom(Room.RoomType.MachineRoomEast, direction);
+                }
+                else
+                {
+                    SpawnRoom(Room.RoomType.BreakRoomEast, direction);
+                }
             }
         }
 
@@ -166,20 +195,37 @@ public class MapGenerator : MonoBehaviour
             {
                 if (currentRoom.roomType == Room.RoomType.HorizontalCorridor)
                 {
-                    if (rnd < 5)
+                    
+                    if (rnd < 3) // 30%
                     {
+                        
                         SpawnRoom(Room.RoomType.HorizontalCorridor, direction);
                     }
                     else
                     {
+                        //turn corridor to the north if the first horizontal level arm
                         if (currentRoom.bigRoomArmNr == 1)
                         {
                             SpawnRoom(Room.RoomType.CornerWN, direction);
                         }
 
+                        //turn corridor to the south if last horizontal room arm
                         if (currentRoom.bigRoomArmNr == bigRooms)
                         {
                             SpawnRoom(Room.RoomType.CornerWS, direction);
+                        }
+
+                        if (currentRoom.bigRoomArmNr != 1 && currentRoom.bigRoomArmNr != bigRooms)
+                        {
+                            // Close off Arm
+                            if (rnd < 5)
+                            {
+                                SpawnRoom(Room.RoomType.MachineRoomWest, direction);
+                            }
+                            else
+                            {
+                                SpawnRoom(Room.RoomType.BreakRoomWest, direction);
+                            }
                         }
                     }
                 }
@@ -190,7 +236,15 @@ public class MapGenerator : MonoBehaviour
             }
             else
             {
-                SpawnRoom(Room.RoomType.MachineRoomWest, direction);
+                // Close off Arm
+                if (rnd < 5)
+                {
+                    SpawnRoom(Room.RoomType.MachineRoomWest, direction);
+                }
+                else
+                {
+                    SpawnRoom(Room.RoomType.BreakRoomWest, direction);
+                }
             }
         }
         
@@ -209,21 +263,72 @@ public class MapGenerator : MonoBehaviour
                         SpawnRoom(Room.RoomType.BigRoomCross, direction);
                 }
             }
-            else
+            else // Corridor close room
             {
-                SpawnRoom(Room.RoomType.MachineRoomSouth, direction);
+                // If all big cross rooms are created
+                if (bigRoomsCreated == bigRooms)
+                {
+                    if (currentRoom.bigRoomArmNr == 0 || currentRoom.roomType == Room.RoomType.BigRoomCross)
+                    {
+                        // Here should spawn the boss room
+                        SpawnRoom(Room.RoomType.BossRoom, direction);
+                    }
+                    else
+                    {
+                        if (rnd < 5)
+                        {
+                            SpawnRoom(Room.RoomType.BreakRoomSouth, direction);
+                        }
+                        else
+                        {
+                            SpawnRoom(Room.RoomType.MachineRoomSouth, direction);
+                        }
+                        
+                    }
+                        
+                    
+                }
+                else
+                {
+                    SpawnRoom(Room.RoomType.BigRoomCross, direction);
+                }
             }
         }
 
         if (direction == "north")
         {
+            // Only first corridor arm can get here
             if (roomsCreated < startclosingRooms)
             {
-                SpawnRoom(Room.RoomType.VerticalCorridor, direction);
+                if (rnd < 5)
+                {
+                    SpawnRoom(Room.RoomType.VerticalCorridor, direction);
+                }
+                else
+                {
+                    // Close off Arm
+                    if (rnd < 8)
+                    {
+                        SpawnRoom(Room.RoomType.MachineRoomNorth, direction);
+                    }
+                    else
+                    {
+                        SpawnRoom(Room.RoomType.BreakRoomNorth, direction);
+                    }
+                }
+                
             }
             else
             {
-                SpawnRoom(Room.RoomType.MachineRoomNorth, direction);
+                // Close off Arm
+                if (rnd < 5)
+                {
+                    SpawnRoom(Room.RoomType.MachineRoomNorth, direction);
+                }
+                else
+                {
+                    SpawnRoom(Room.RoomType.BreakRoomNorth, direction);
+                }
             }
         }
     }
@@ -233,6 +338,7 @@ public class MapGenerator : MonoBehaviour
 
         Vector3 offset = new Vector3();
 
+        //Instantiate room object
         switch (type)
         {
             case Room.RoomType.VerticalCorridor:
@@ -256,15 +362,19 @@ public class MapGenerator : MonoBehaviour
                 break;
             case Room.RoomType.CornerEN:
                 tempRoomObject = Instantiate(cornerEN, new Vector3(0, 0, 0), Quaternion.Euler(0, -90, 0));
+                CountRoom(currentRoom, tempRoomObject.GetComponent<Room>());
                 break;
             case Room.RoomType.CornerES:
                 tempRoomObject = Instantiate(cornerES, new Vector3(0, 0, 0), Quaternion.Euler(0, 180, 0));
+                CountRoom(currentRoom, tempRoomObject.GetComponent<Room>());
                 break;
             case Room.RoomType.CornerWN:
                 tempRoomObject = Instantiate(cornerWN, new Vector3(0, 0, 0), Quaternion.Euler(0, 0, 0));
+                CountRoom(currentRoom, tempRoomObject.GetComponent<Room>());
                 break;
             case Room.RoomType.CornerWS:
                 tempRoomObject = Instantiate(cornerWS, new Vector3(0, 0, 0), Quaternion.Euler(0, 90, 0));
+                CountRoom(currentRoom, tempRoomObject.GetComponent<Room>());
                 break;
             case Room.RoomType.MachineRoomNorth:
                 tempRoomObject = Instantiate(machineRoomNorth, new Vector3(0, 0, 0), Quaternion.Euler(0, 0, 0));
@@ -277,6 +387,21 @@ public class MapGenerator : MonoBehaviour
                 break;
             case Room.RoomType.MachineRoomWest:
                 tempRoomObject = Instantiate(machineRoomWest, new Vector3(0, 0, 0), Quaternion.Euler(0, -90, 0));
+                break;
+            case Room.RoomType.BreakRoomNorth:
+                tempRoomObject = Instantiate(breakRoomNorth, new Vector3(0, 0, 0), Quaternion.Euler(0, 0, 0));
+                break;
+            case Room.RoomType.BreakRoomEast:
+                tempRoomObject = Instantiate(breakRoomEast, new Vector3(0, 0, 0), Quaternion.Euler(0, 90, 0));
+                break;
+            case Room.RoomType.BreakRoomSouth:
+                tempRoomObject = Instantiate(breakRoomSouth, new Vector3(0, 0, 0), Quaternion.Euler(0, 180, 0));
+                break;
+            case Room.RoomType.BreakRoomWest:
+                tempRoomObject = Instantiate(breakRoomWest, new Vector3(0, 0, 0), Quaternion.Euler(0, -90, 0));
+                break;
+            case Room.RoomType.BossRoom:
+                tempRoomObject = Instantiate(bossRoom, new Vector3(0, 0, 0), Quaternion.Euler(0, 180, 0));
                 break;
             case Room.RoomType.BigRoomCross:
                 tempRoomObject = Instantiate(bigRoomCross, new Vector3(0, 0, 0), Quaternion.Euler(0, 0, 0));
@@ -328,8 +453,9 @@ public class MapGenerator : MonoBehaviour
                 break;
         }
 
-
+        //Parent object to level object
         tempRoomObject.transform.parent = levelObject.transform;
+        
         roomsToConnect.Add(tempRoomObject.GetComponent<Room>());
         roomsCreated++;
     }
@@ -346,6 +472,24 @@ public class MapGenerator : MonoBehaviour
         {
             tempRoom.bigRoomArmNr = currentRoom.bigRoomArmNr;
             tempRoom.corridoorNr = currentRoom.corridoorNr + 1;
+        }
+
+        if (tempRoom.roomType == Room.RoomType.VerticalCorridor)
+        {
+            tempRoom.bigRoomArmNr = currentRoom.bigRoomArmNr;
+            tempRoom.corridoorNr = currentRoom.corridoorNr + 1;
+        }
+
+        if (tempRoom.roomType == Room.RoomType.CornerEN || tempRoom.roomType == Room.RoomType.CornerES || tempRoom.roomType == Room.RoomType.CornerWN || tempRoom.roomType == Room.RoomType.CornerWS)
+        {
+            tempRoom.bigRoomArmNr = currentRoom.bigRoomArmNr;
+            tempRoom.corridoorNr = currentRoom.corridoorNr + 1;
+        }
+
+        if (tempRoom.roomType == Room.RoomType.VerticalCorridor && currentRoom.roomType == Room.RoomType.BigRoomCross && bigRoomsCreated == bigRooms)
+        {
+            tempRoom.bigRoomArmNr = 0;
+            tempRoom.corridoorNr = 0;
         }
     }
 }
