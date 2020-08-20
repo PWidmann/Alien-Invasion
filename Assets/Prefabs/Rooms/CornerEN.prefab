@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1016945744995460386}
   - component: {fileID: 1016945744998360860}
   - component: {fileID: 1016945744997307684}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: decorative_wall_3_LOD1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -92,7 +92,7 @@ GameObject:
   - component: {fileID: 1016945744995471010}
   - component: {fileID: 1016945744998380288}
   - component: {fileID: 1016945744997765810}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: decorative_wall_3_LOD0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -173,7 +173,7 @@ GameObject:
   - component: {fileID: 1016945744995468594}
   - component: {fileID: 1016945744993536384}
   - component: {fileID: 1016945745014712690}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: decorative_wall_3 (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}

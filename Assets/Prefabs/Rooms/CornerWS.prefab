@@ -131,7 +131,7 @@ GameObject:
   - component: {fileID: 6587147440871727637}
   - component: {fileID: 6587147440869975877}
   - component: {fileID: 6587147440891560647}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: decorative_wall_4_computer (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -201,7 +201,7 @@ GameObject:
   - component: {fileID: 6587147440871809481}
   - component: {fileID: 6587147440875176499}
   - component: {fileID: 6587147440874132565}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: decorative_wall_4_computer_LOD1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -285,7 +285,7 @@ GameObject:
   - component: {fileID: 6587147440871728193}
   - component: {fileID: 6587147440875188799}
   - component: {fileID: 6587147440874164667}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: decorative_wall_4_computer_LOD0
   m_TagString: Untagged
   m_Icon: {fileID: 0}

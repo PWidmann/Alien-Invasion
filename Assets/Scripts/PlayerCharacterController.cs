@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.Runtime.Remoting.Lifetime;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -23,6 +22,8 @@ public class PlayerCharacterController: MonoBehaviour
 
     public GameObject pistolEndingPosition;
 
+    public int health;
+
     //References
     Animator animator;
     Transform cameraT;
@@ -32,6 +33,7 @@ public class PlayerCharacterController: MonoBehaviour
     float animationSpeedPercent;
 
     private bool alive = true;
+    private bool hasKey = false;
 
     // Weapons
     float pistolShootTimer = 0.5f;
@@ -42,10 +44,12 @@ public class PlayerCharacterController: MonoBehaviour
     Transform chest; // For rotating aiming animation
     Vector3 aimAnimOffset = new Vector3(15, 35, 15); // Best compromise of far and near target aiming rotation
     Quaternion aimRotation;
+    RaycastHit hit;
     
 
     public static bool IsAiming { get => isAiming; set => isAiming = value; }
     public bool Alive { get => alive; set => alive = value; }
+    public bool HasKey { get => hasKey; set => hasKey = value; }
 
     private void Awake()
     {
@@ -59,15 +63,27 @@ public class PlayerCharacterController: MonoBehaviour
         cameraT = Camera.main.transform;
         controller = GetComponent<CharacterController>();
 
+        health = 10;
+
         // For aiming animation
         chest = animator.GetBoneTransform(HumanBodyBones.Chest);
     }
 
     void Update()
     {
-        Movement();
-        Aiming();
-        PistolShooting();
+        if (health <= 0)
+        {
+            health = 0;
+            alive = false;
+            animator.SetBool("isDeath", true);
+            isAiming = false;
+        }
+        else
+        {
+            Movement();
+            Aiming();
+            PistolShooting();
+        }
     }
 
     private void LateUpdate()
@@ -138,9 +154,14 @@ public class PlayerCharacterController: MonoBehaviour
         void AimToMouse()
         {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            //ray.origin = pistolEndingPosition.transform.position;
 
-            if (Physics.Raycast(ray, out hitInfo, maxDistance: 300f))
+            // Create layer mask so you can shoot target in sight, even when target is behind a wall from the camera perspective
+            int ground = 1 << LayerMask.NameToLayer("NavMesh");
+            int alien = 1 << LayerMask.NameToLayer("Alien");
+            int aimMask = ground | alien;
+
+
+            if (Physics.Raycast(ray, out hitInfo, maxDistance: 300f, aimMask))
             {
                 Vector3 target = hitInfo.point;
                 target.y = transform.position.y;
@@ -149,6 +170,7 @@ public class PlayerCharacterController: MonoBehaviour
                 Debug.DrawRay(transform.position + new Vector3(0, 1, 0), targetDir * 2);
                 transform.LookAt(target);
 
+                DrawLineOfSight();
 
                 // match target aiming vector to unrotated animation map vector
                 Vector3 newInput = new Vector3(inputDir.x, 0, inputDir.y);
@@ -170,12 +192,12 @@ public class PlayerCharacterController: MonoBehaviour
 
     void Aiming()
     {
-        if (Input.GetMouseButton(1))
+        if (Input.GetMouseButton(1) && alive)
         {
             IsAiming = true;
             runSpeed = 3f;
             animator.SetBool("isAiming", true);
-
+            
         }
         else
         {
@@ -211,19 +233,58 @@ public class PlayerCharacterController: MonoBehaviour
 
             //Body Shot
             if (hitInfo.transform.tag == "AlienBody")
-            {
-                Debug.Log("Body shot");
-                hitInfo.transform.GetComponent<AlienController>().TakeDamage(1);
+            { 
+                if (isAlienInSight())
+                {
+                    hitInfo.transform.GetComponent<AlienController>().TakeDamage(1);
+                    Debug.Log("Body shot");
+                }
             }
 
             // Head Shot
             if (hitInfo.collider.transform.tag == "AlienHead")
             {
-                Debug.Log("Head shot");
-                hitInfo.collider.transform.GetComponent<AlienHead>().alien.GetComponent<AlienController>().TakeDamage(3);
+                if (isAlienInSight())
+                {
+                    hitInfo.collider.transform.GetComponent<AlienHead>().alien.GetComponent<AlienController>().TakeDamage(3);
+                    Debug.Log("Head shot");
+                }
             }
-
-            
         }
+    }
+
+    bool isAlienInSight()
+    {
+        bool hasSeenAlien = false;
+
+        if (Physics.Raycast(pistolEndingPosition.transform.position, hitInfo.point - pistolEndingPosition.transform.position, out hit, 100.0f))
+        {
+            if (hit.transform.tag == "AlienBody" || hit.collider.transform.tag == "AlienHead")
+            {
+                hasSeenAlien = true;
+            }
+        }
+
+        return hasSeenAlien;
+    }
+
+    void DrawLineOfSight()
+    {
+        if (Physics.Raycast(pistolEndingPosition.transform.position, hitInfo.point - pistolEndingPosition.transform.position, out hit, 100.0f))
+        {
+            if (hit.transform.tag == "AlienBody" || hit.collider.transform.tag == "AlienHead")
+            {
+                Debug.DrawRay(pistolEndingPosition.transform.position, hitInfo.point - pistolEndingPosition.transform.position, Color.green);
+            }
+            else
+            {
+                Debug.DrawRay(pistolEndingPosition.transform.position, hitInfo.point - pistolEndingPosition.transform.position, Color.yellow);
+            }
+        }
+    }
+
+    public void TakeDamage(int damage)
+    {
+        health -= damage;
     }
 }

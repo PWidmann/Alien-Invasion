@@ -500,7 +500,7 @@ GameObject:
   - component: {fileID: 2691401922040049729}
   - component: {fileID: 2691401922043563491}
   - component: {fileID: 2691401922042342481}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: decorative_wall_3_LOD0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -581,7 +581,7 @@ GameObject:
   - component: {fileID: 2691401922040060865}
   - component: {fileID: 2691401922043451903}
   - component: {fileID: 2691401922042407879}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: decorative_wall_3_LOD1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -662,7 +662,7 @@ GameObject:
   - component: {fileID: 2691401922040052689}
   - component: {fileID: 2691401922046572387}
   - component: {fileID: 2691401922027362193}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: decorative_wall_3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -988,7 +988,7 @@ GameObject:
   - component: {fileID: 3330869787652723524}
   - component: {fileID: 3330869787658687504}
   - component: {fileID: 3330869787669568806}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: decorative_wall_2 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1058,7 +1058,7 @@ GameObject:
   - component: {fileID: 3330869787652714732}
   - component: {fileID: 3330869787653454372}
   - component: {fileID: 3330869787654726566}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: decorative_wall_2_LOD0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1139,7 +1139,7 @@ GameObject:
   - component: {fileID: 3330869787652708434}
   - component: {fileID: 3330869787653456606}
   - component: {fileID: 3330869787654536204}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: decorative_wall_2_LOD1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1732,7 +1732,7 @@ GameObject:
   - component: {fileID: 4798234434919273831}
   - component: {fileID: 4798234434919273828}
   - component: {fileID: 4798234434919273829}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: decorative_wall_5 (6)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2019,7 +2019,7 @@ GameObject:
   - component: {fileID: 5105905293283920571}
   - component: {fileID: 5105905293282809835}
   - component: {fileID: 5105905293278624525}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: decorative_wall_5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3470,7 +3470,7 @@ GameObject:
   - component: {fileID: 6811362399711087620}
   - component: {fileID: 6811362399713009050}
   - component: {fileID: 6811362399690786928}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: decorative_wall_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3540,7 +3540,7 @@ GameObject:
   - component: {fileID: 6811362399711037578}
   - component: {fileID: 6811362399708236638}
   - component: {fileID: 6811362399708811444}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: decorative_wall_1_LOD1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3621,7 +3621,7 @@ GameObject:
   - component: {fileID: 6811362399711028122}
   - component: {fileID: 6811362399708205796}
   - component: {fileID: 6811362399709234140}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: decorative_wall_1_LOD0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4538,7 +4538,7 @@ GameObject:
   - component: {fileID: 6811362400499437776}
   - component: {fileID: 6811362400496636676}
   - component: {fileID: 6811362400497469678}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: decorative_wall_1_LOD1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4619,7 +4619,7 @@ GameObject:
   - component: {fileID: 6811362400499487838}
   - component: {fileID: 6811362400501663168}
   - component: {fileID: 6811362400513003562}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: decorative_wall_1 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4689,7 +4689,7 @@ GameObject:
   - component: {fileID: 6811362400499432384}
   - component: {fileID: 6811362400496601790}
   - component: {fileID: 6811362400497638278}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: decorative_wall_1_LOD0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5245,7 +5245,7 @@ GameObject:
   - component: {fileID: 6811362400819207793}
   - component: {fileID: 6811362400819207792}
   - component: {fileID: 6811362400819207795}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: decorative_wall_5 (8)
   m_TagString: Untagged
   m_Icon: {fileID: 0}

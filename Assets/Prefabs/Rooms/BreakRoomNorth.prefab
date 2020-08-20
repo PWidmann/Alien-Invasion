@@ -757,7 +757,7 @@ GameObject:
   - component: {fileID: 3706384186980141506}
   - component: {fileID: 3706384186979030162}
   - component: {fileID: 3706384186983233652}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: decorative_wall_5 (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1571,7 +1571,7 @@ GameObject:
   - component: {fileID: 4831468547370076433}
   - component: {fileID: 4831468547368965185}
   - component: {fileID: 4831468547364780199}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: decorative_wall_5 (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1929,7 +1929,7 @@ GameObject:
   - component: {fileID: 5671346289020213961}
   - component: {fileID: 5671346289023047965}
   - component: {fileID: 5671346289022173943}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: decorative_wall_1_LOD1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2309,7 +2309,7 @@ GameObject:
   - component: {fileID: 5955088766793236239}
   - component: {fileID: 5955088766793236224}
   - component: {fileID: 5955088766793236225}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: decorative_wall_5 (7)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2695,7 +2695,7 @@ GameObject:
   - component: {fileID: 5955088768537610560}
   - component: {fileID: 5955088768537610561}
   - component: {fileID: 5955088768537610562}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: decorative_wall_5 (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3012,7 +3012,7 @@ GameObject:
   - component: {fileID: 7191110707258669805}
   - component: {fileID: 7191110707259647933}
   - component: {fileID: 7191110707263834971}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: decorative_wall_5 (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}

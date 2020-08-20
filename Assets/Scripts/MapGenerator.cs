@@ -13,8 +13,9 @@ public class MapGenerator : MonoBehaviour
     [Range(0, 100)]
     public int enemySpawnChance = 50;
 
-    [Header("Alien Prefab")]
+    [Header("Character Prefab")]
     public GameObject alienPrefab;
+    public GameObject playerPrefab;
     public GameObject[] alienSpawns;
 
 

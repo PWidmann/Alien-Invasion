@@ -1382,7 +1382,7 @@ GameObject:
   - component: {fileID: 4459489020541540633}
   - component: {fileID: 4459489020542649417}
   - component: {fileID: 4459489020546853039}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: decorative_wall_5 (3)
   m_TagString: Room
   m_Icon: {fileID: 0}
@@ -1616,7 +1616,7 @@ GameObject:
   - component: {fileID: 5584501399322286538}
   - component: {fileID: 5584501399323395226}
   - component: {fileID: 5584501399319210108}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: decorative_wall_5 (4)
   m_TagString: Room
   m_Icon: {fileID: 0}
@@ -1933,7 +1933,7 @@ GameObject:
   - component: {fileID: 6640637683409082779}
   - component: {fileID: 6640637683409082778}
   - component: {fileID: 6640637683409082777}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: decorative_wall_5 (5)
   m_TagString: Room
   m_Icon: {fileID: 0}
@@ -2377,7 +2377,7 @@ GameObject:
   - component: {fileID: 6640637684883697620}
   - component: {fileID: 6640637684883697627}
   - component: {fileID: 6640637684883697626}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: decorative_wall_5 (7)
   m_TagString: Room
   m_Icon: {fileID: 0}
@@ -2569,7 +2569,7 @@ GameObject:
   - component: {fileID: 7874267362924997174}
   - component: {fileID: 7874267362924017510}
   - component: {fileID: 7874267362928204672}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: decorative_wall_5 (2)
   m_TagString: Room
   m_Icon: {fileID: 0}

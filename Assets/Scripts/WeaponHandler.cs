@@ -27,7 +27,7 @@ public class WeaponHandler : MonoBehaviour
     private void Update()
     {
         //Equip pistol
-        if (Input.GetKeyDown(KeyCode.Alpha1))
+        if (Input.GetKeyDown(KeyCode.Alpha1) && PlayerCharacterController.Instance.Alive)
         {
             pistolActive = !pistolActive;
             SoundManager.instance.PlaySound(1);

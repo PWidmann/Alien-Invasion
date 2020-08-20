@@ -14,6 +14,7 @@ public class SoundManager : MonoBehaviour
     public Slider soundSlider;
     public Text soundValueText;
     public AudioSource audioSourceFX;
+    public AudioSource alarmAudioSourceFX;
     private float soundPlayTimer = 0.15f;
     private bool canPlaySound = true;
 
@@ -51,10 +52,18 @@ public class SoundManager : MonoBehaviour
 
     public void PlaySound(int index)
     {
-        if (canPlaySound)
+        if (index == 6)
         {
-            audioSourceFX.PlayOneShot(audioClips[index]);
-            canPlaySound = false;
+            alarmAudioSourceFX.PlayOneShot(audioClips[index]);
         }
+        else
+        {
+            if (canPlaySound)
+            {
+                audioSourceFX.PlayOneShot(audioClips[index]);
+                canPlaySound = false;
+            }
+        }
+        
     }
 }

@@ -9,12 +9,17 @@ public class AlienController : MonoBehaviour
     private enum State { Idle, Pathing, ChaseTarget, Attacking };
     private State state;
 
-    public float chaseRadius = 15f;
-    public float attackDistance = 8f;
+    public GameObject weapon;
+    public GameObject weaponEnd;
+    public GameObject energyBullet;
+    public GameObject keyCard;
+
+    public float chaseRadius = 25f;
+    public float attackDistance = 20f;
     public float idleTime = 3f;
     private float timer = 0f;
 
-    private float wayPointSearchRadius = 15f;
+    private float wayPointSearchRadius = 25f;
     private int currentWayPoint = 0;
     Vector3 direction;
     Quaternion lookRotation;
@@ -33,8 +38,15 @@ public class AlienController : MonoBehaviour
 
     public Transform rayStart;
     RaycastHit hit;
+    float shootCooldown = 0.7f;
+    float shootTimer = 0;
+
+    bool shot = false;
+    bool alarmFocusActivated = false;
 
     private int health = 3;
+
+    private bool keyCardCreated = false;
 
     public int Health { get => health; set => health = value; }
 
@@ -60,9 +72,6 @@ public class AlienController : MonoBehaviour
             Debug.DrawRay(rayStart.position, target.position - transform.position, Color.red);
         }
 
-
-
-
         if (!searchedWayPoints)
         {
             SearchWayPoints();
@@ -76,25 +85,44 @@ public class AlienController : MonoBehaviour
             distance = Vector3.Distance(target.position, transform.position);
         }
 
-        if (distance <= chaseRadius && distance > attackDistance && PlayerCharacterController.Instance.Alive)
+        
+
+        if ((distance <= chaseRadius && distance > attackDistance && PlayerCharacterController.Instance.Alive && isPlayerInSight()))
         {
             state = State.ChaseTarget;
             Debug.Log("Changed State to ChaseTarget");
         }
 
-        if (distance <= attackDistance && PlayerCharacterController.Instance.Alive)
+        if (distance <= attackDistance && PlayerCharacterController.Instance.Alive && isPlayerInSight())
         {
             state = State.Attacking;
             Debug.Log("Changed State to Attacking");
         }
 
-        if (state == State.ChaseTarget && distance > chaseRadius)
+        if (state == State.ChaseTarget && !isPlayerInSight() && distance > chaseRadius + 10)
         {
             agent.isStopped = true;
             state = State.Idle;
             Debug.Log("Changed State to Idle");
         }
 
+        if (!PlayerCharacterController.Instance.Alive)
+        {
+            GameManager.AlarmActive = false;
+            state = State.Idle;
+            weapon.SetActive(false);
+        }
+
+        if (GameManager.AlarmActive)
+        {
+            if (!alarmFocusActivated)
+            {
+                distance = 5f;
+                chaseRadius = 1000f;
+                alarmFocusActivated = true;
+                state = State.ChaseTarget;
+            }
+        }
 
         switch (state)
         {
@@ -114,17 +142,23 @@ public class AlienController : MonoBehaviour
 
         if (health > 0)
         {
-            if (distance <= attackDistance)
+            if (distance <= attackDistance && isPlayerInSight() && PlayerCharacterController.Instance.Alive)
             {
                 FaceTarget(PlayerCharacterController.Instance.playerPosition);
+                extraRotation();
             }
-
-            extraRotation();
         }
         else
         {
             agent.speed = 0;
             state = State.Idle;
+
+            if (!keyCardCreated && !PlayerCharacterController.Instance.HasKey)
+            {
+                Instantiate(keyCard, transform.position + new Vector3(0, 0.5f, 0), Quaternion.Euler(90f, 0, 0));
+                keyCardCreated = true;
+            }
+            
         }
     }
 
@@ -156,41 +190,48 @@ public class AlienController : MonoBehaviour
 
     void Pathing()
     {
-        animator.SetBool("isAttacking", false);
-        agent.isStopped = false;
-
-        direction = (pathWayPoints[currentWayPoint].transform.position - transform.position).normalized;
-        lookRotation = Quaternion.LookRotation(new Vector3(direction.x, 0, direction.z));
-        transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * 6f);
-
-        if (animator.GetCurrentAnimatorStateInfo(0).IsName("Walking"))
+        if (pathWayPoints.Count > 0)
         {
-            targetSpeed = 4f;
-            currentSpeed = Mathf.SmoothDamp(currentSpeed, targetSpeed, ref speedSmoothVelocity, speedSmoothTime);
-            agent.speed = currentSpeed;
+            animator.SetBool("isAttacking", false);
+            agent.isStopped = false;
 
-            float animationSpeedPercent = currentSpeed / 4f;
-            animator.SetFloat("speedPercent", animationSpeedPercent, speedSmoothTime, Time.deltaTime);
+            direction = (pathWayPoints[currentWayPoint].transform.position - transform.position).normalized;
+            lookRotation = Quaternion.LookRotation(new Vector3(direction.x, 0, direction.z));
+            transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * 6f);
 
-
-            agent.SetDestination(pathWayPoints[currentWayPoint].transform.position);
-
-            if (Vector3.Distance(transform.position, pathWayPoints[currentWayPoint].transform.position) < agent.stoppingDistance)
+            if (animator.GetCurrentAnimatorStateInfo(0).IsName("Walking"))
             {
-                currentWayPoint++;
+                targetSpeed = 4f;
+                currentSpeed = Mathf.SmoothDamp(currentSpeed, targetSpeed, ref speedSmoothVelocity, speedSmoothTime);
+                agent.speed = currentSpeed;
 
-                if (currentWayPoint >= pathWayPoints.Count)
+                float animationSpeedPercent = currentSpeed / 4f;
+                animator.SetFloat("speedPercent", animationSpeedPercent, speedSmoothTime, Time.deltaTime);
+
+
+                agent.SetDestination(pathWayPoints[currentWayPoint].transform.position);
+
+                if (Vector3.Distance(transform.position, pathWayPoints[currentWayPoint].transform.position) < agent.stoppingDistance)
                 {
-                    currentWayPoint = 0;
+                    currentWayPoint++;
+
+                    if (currentWayPoint >= pathWayPoints.Count)
+                    {
+                        currentWayPoint = 0;
+                    }
                 }
             }
         }
+        
     }
 
     void ChaseTarget()
     {
         agent.isStopped = false;
         animator.SetBool("isAttacking", false);
+
+        if(health > 0)
+            weapon.SetActive(false);
 
         if (animator.GetCurrentAnimatorStateInfo(0).IsName("Walking"))
         {
@@ -211,20 +252,34 @@ public class AlienController : MonoBehaviour
 
     void Attacking()
     {
-        FaceTarget(PlayerCharacterController.Instance.playerPosition);
+        if (health > 0 && PlayerCharacterController.Instance.Alive)
+        {
+            FaceTarget(PlayerCharacterController.Instance.playerPosition);
 
-        //if direct lign of sight to player
-        if (isPlayerInSight())
-        {
-            animator.SetBool("isAttacking", true);
-            agent.velocity = Vector3.zero;
-            agent.isStopped = true;
-            agent.speed = 0;
-            
-        }
-        else
-        {
-            state = State.ChaseTarget;
+            //if direct line of sight to player
+            if (isPlayerInSight())
+            {
+                animator.SetBool("isAttacking", true);
+                agent.velocity = Vector3.zero;
+                agent.isStopped = true;
+                agent.speed = 0;
+                weapon.SetActive(true);
+
+                shootTimer += Time.deltaTime;
+
+                if (shootTimer > shootCooldown)
+                {
+                    SoundManager.instance.PlaySound(4);
+                    GameObject bullet = Instantiate(energyBullet, weaponEnd.transform.position, Quaternion.identity);
+                    bullet.GetComponent<BulletMovement>().Movement = target.position - transform.position;
+                    shootTimer = 0f;
+                }
+
+            }
+            else
+            {
+                state = State.ChaseTarget;
+            }
         }
     }
 
@@ -241,6 +296,8 @@ public class AlienController : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
+        shot = true;
+
         health -= damage;
 
         if (health > 0)
@@ -256,10 +313,13 @@ public class AlienController : MonoBehaviour
 
     void extraRotation()
     {
-        Vector3 lookrotation = agent.steeringTarget - transform.position;
+        if (isPlayerInSight())
+        {
+            Vector3 lookrotation = agent.steeringTarget - transform.position;
 
-        if (lookrotation != Vector3.zero)
-            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(lookrotation), extraRotationSpeed * Time.deltaTime);
+            if (lookrotation != Vector3.zero)
+                transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(lookrotation), extraRotationSpeed * Time.deltaTime);
+        }
     }
 
     void SearchWayPoints()
