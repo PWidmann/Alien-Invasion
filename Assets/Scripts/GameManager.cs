@@ -12,4 +12,13 @@ public class GameManager : MonoBehaviour
     public static bool AlarmActive { get => alarmActive; set => alarmActive = value; }
     public static bool SelfDestrucionActive { get => selfDestrucionActive; set => selfDestrucionActive = value; }
     public static int AliensKilled { get => aliensKilled; set => aliensKilled = value; }
+
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Application.Quit();
+        }
+    }
 }

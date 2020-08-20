@@ -607,16 +607,19 @@ MonoBehaviour:
   m_Text: 'Controls:
 
 
+    -Move with WASD
+
     -Draw your weapon with [1]
 
-    -Press right mouse button
-    to aim with your pistol.
+    -Press
+    right mouse button to aim with your pistol.
 
-    -Press left mouse button while aiming to shoot.
+    -Press left mouse button while
+    aiming to shoot.
 
 
-    To
-    heal yourself use the heal platform in the starting room.'
+    To heal yourself, use the heal platform in the starting
+    room.'
 --- !u!222 &385438273
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2121,8 +2124,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a3bbac54c77d340499e58b78762bdfcc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bigRooms: 3
-  startclosingRooms: 25
+  bigRooms: 4
+  startclosingRooms: 35
   enemySpawnChance: 100
   alienPrefab: {fileID: 758653166914118070, guid: 18feec85acd3ca74a9031351f35ce6e1, type: 3}
   alienSpawns: []
