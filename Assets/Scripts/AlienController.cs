@@ -19,7 +19,7 @@ public class AlienController : MonoBehaviour
     public float idleTime = 3f;
     private float timer = 0f;
 
-    private float wayPointSearchRadius = 25f;
+    private float wayPointSearchRadius = 15f;
     private int currentWayPoint = 0;
     Vector3 direction;
     Quaternion lookRotation;
@@ -41,7 +41,6 @@ public class AlienController : MonoBehaviour
     float shootCooldown = 0.7f;
     float shootTimer = 0;
 
-    bool shot = false;
     bool alarmFocusActivated = false;
 
     private int health = 3;
@@ -296,7 +295,7 @@ public class AlienController : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
-        shot = true;
+        state = State.Idle;
 
         health -= damage;
 

@@ -19,6 +19,6 @@ public class Keycard : MonoBehaviour
 
     void RotateKey()
     {
-        transform.Rotate(0, 0, Time.deltaTime * 25, Space.Self);
+        transform.Rotate(0, 0, Time.deltaTime * 35, Space.Self);
     }
 }

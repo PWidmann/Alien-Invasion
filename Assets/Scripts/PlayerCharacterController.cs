@@ -33,7 +33,7 @@ public class PlayerCharacterController: MonoBehaviour
     float animationSpeedPercent;
 
     private bool alive = true;
-    private bool hasKey = false;
+    private bool hasKey = true;
 
     // Weapons
     float pistolShootTimer = 0.5f;
@@ -77,6 +77,7 @@ public class PlayerCharacterController: MonoBehaviour
             alive = false;
             animator.SetBool("isDeath", true);
             isAiming = false;
+            GameInterface.Instance.deathPanel.SetActive(true);
         }
         else
         {

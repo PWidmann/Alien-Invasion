@@ -15,7 +15,6 @@ public class MapGenerator : MonoBehaviour
 
     [Header("Character Prefab")]
     public GameObject alienPrefab;
-    public GameObject playerPrefab;
     public GameObject[] alienSpawns;
 
 
@@ -25,10 +24,6 @@ public class MapGenerator : MonoBehaviour
     public GameObject verticalCorridor;
     public GameObject bigRoomCross;
     public GameObject bossRoom;
-    public GameObject endNorth;
-    public GameObject endEast;
-    public GameObject endSouth;
-    public GameObject endWest;
     public GameObject cornerEN;
     public GameObject cornerES;
     public GameObject cornerWN;
@@ -361,18 +356,6 @@ public class MapGenerator : MonoBehaviour
                 break;
             case Room.RoomType.HorizontalCorridor:
                 tempRoomObject = Instantiate(horizontalCorridor, new Vector3(0, 0, 0), Quaternion.Euler(0, 90, 0));
-                break;
-            case Room.RoomType.EndNorth:
-                tempRoomObject = Instantiate(endNorth, new Vector3(0, 0, 0), Quaternion.Euler(0, 180, 0));
-                break;
-            case Room.RoomType.EndEast:
-                tempRoomObject = Instantiate(endEast, new Vector3(0, 0, 0), Quaternion.Euler(0, -90, 0));
-                break;
-            case Room.RoomType.EndSouth:
-                tempRoomObject = Instantiate(endSouth, new Vector3(0, 0, 0), Quaternion.Euler(0, 0, 0));
-                break;
-            case Room.RoomType.EndWest:
-                tempRoomObject = Instantiate(endWest, new Vector3(0, 0, 0), Quaternion.Euler(0, 90, 0));
                 break;
             case Room.RoomType.CornerEN:
                 tempRoomObject = Instantiate(cornerEN, new Vector3(0, 0, 0), Quaternion.Euler(0, -90, 0));
