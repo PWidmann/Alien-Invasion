@@ -20,7 +20,17 @@ public class AlarmLight : MonoBehaviour
             alarmTimer += Time.deltaTime;
             if (alarmTimer >= alarmCooldown)
             {
-                SoundManager.instance.PlaySound(6);
+                if (GameManager.SelfDestrucionActive)
+                {
+                    alarmCooldown = 2f;
+                    SoundManager.instance.PlaySound(7);
+                }
+                else
+                {
+                    alarmCooldown = 3f;
+                    SoundManager.instance.PlaySound(6);
+                }
+                
                 alarmTimer = 0;
             }
         }

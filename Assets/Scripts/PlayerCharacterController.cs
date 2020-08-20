@@ -33,7 +33,7 @@ public class PlayerCharacterController: MonoBehaviour
     float animationSpeedPercent;
 
     private bool alive = true;
-    private bool hasKey = true;
+    private bool hasKey = false;
 
     // Weapons
     float pistolShootTimer = 0.5f;
@@ -121,7 +121,7 @@ public class PlayerCharacterController: MonoBehaviour
             AimToMouse();
 
         //Player Rotation
-        if (inputDir != Vector2.zero && !IsAiming)
+        if (inputDir != Vector2.zero && !IsAiming && alive)
         {
             // Turn the player in movement direction when not aiming
             targetRotation = Mathf.Atan2(inputDir.x, inputDir.y) * Mathf.Rad2Deg + cameraT.eulerAngles.y;

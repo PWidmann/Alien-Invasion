@@ -5,14 +5,18 @@ using UnityEngine;
 public class CockpitConsole : MonoBehaviour
 {
     float textTimer = 0;
-    bool countDownStarted = false;
-
-    
+    bool insideTrigger = false;
 
     private void OnTriggerStay(Collider other)
     {
         textTimer = 0;
         GameInterface.Instance.interactText.SetActive(true);
+        insideTrigger = true;
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        insideTrigger = false;
     }
 
     private void Update()
@@ -26,11 +30,10 @@ public class CockpitConsole : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.E))
         {
-            if (!countDownStarted)
+            if (insideTrigger)
             {
                 GameManager.SelfDestrucionActive = true;
-                countDownStarted = true;
-                GameInterface.Instance.ShowMessage("Escape the alien ship back at the entrance!");
+                GameInterface.Instance.ShowMessage("Self destruction started! Go back to the entrance to escape the ship!");
             }
         }
     }

@@ -72,7 +72,7 @@ public class BridgeDoor : MonoBehaviour
             }
             else
             {
-                GameInterface.Instance.ShowMessage("You need a key card to open the door. Maybe a enemy has one.");
+                GameInterface.Instance.ShowMessage("You need a key card to open the door. Maybe an enemy has one.");
             }
             
         }

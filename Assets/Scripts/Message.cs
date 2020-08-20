@@ -11,7 +11,7 @@ public class Message : MonoBehaviour
     public GameObject messagePanel;
     public GameObject messageText;
 
-    public int panelWidth = 600;
+    public int panelWidth = 650;
     private float currentWidth;
     private bool panelActive = false;
     private bool fadeOut = false;

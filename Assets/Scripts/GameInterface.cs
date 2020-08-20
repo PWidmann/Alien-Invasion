@@ -13,6 +13,7 @@ public class GameInterface : MonoBehaviour
     public GameObject messagePanel;
     public GameObject welcomePanel;
     public GameObject deathPanel;
+    public GameObject winScreen;
     public GameObject interactText;
     public GameObject sun;
 
@@ -72,6 +73,11 @@ public class GameInterface : MonoBehaviour
 
     public void RestartGame()
     {
+        Time.timeScale = 1f;
+        GameManager.AlarmActive = false;
+        GameManager.AliensKilled = 0;
+        GameManager.SelfDestrucionActive = false;
         SceneManager.LoadScene(0);
+
     }
 }

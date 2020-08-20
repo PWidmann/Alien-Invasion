@@ -40,6 +40,8 @@ public class AlienController : MonoBehaviour
     RaycastHit hit;
     float shootCooldown = 0.7f;
     float shootTimer = 0;
+    bool killCounted = false;
+
 
     bool alarmFocusActivated = false;
 
@@ -152,7 +154,13 @@ public class AlienController : MonoBehaviour
             agent.speed = 0;
             state = State.Idle;
 
-            if (!keyCardCreated && !PlayerCharacterController.Instance.HasKey)
+            if (!killCounted)
+            {
+                GameManager.AliensKilled += 1;
+                killCounted = true;
+            }
+
+            if (!keyCardCreated && !PlayerCharacterController.Instance.HasKey && GameManager.AliensKilled > 2)
             {
                 Instantiate(keyCard, transform.position + new Vector3(0, 0.5f, 0), Quaternion.Euler(90f, 0, 0));
                 keyCardCreated = true;

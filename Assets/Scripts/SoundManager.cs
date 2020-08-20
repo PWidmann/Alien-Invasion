@@ -52,7 +52,7 @@ public class SoundManager : MonoBehaviour
 
     public void PlaySound(int index)
     {
-        if (index == 6)
+        if (index == 6 || index == 7)
         {
             alarmAudioSourceFX.PlayOneShot(audioClips[index]);
         }
@@ -66,4 +66,16 @@ public class SoundManager : MonoBehaviour
         }
         
     }
+
+    public void PlayHealing()
+    {
+        audioSourceFX.Play();
+    }
+
+    public void StopHealing()
+    {
+        audioSourceFX.Stop();
+    }
+
+
 }
