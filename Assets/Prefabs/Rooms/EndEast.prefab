@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 82860979829229190}
   - component: {fileID: 82860979822905908}
   - component: {fileID: 82860979843033798}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: decorative_wall_3 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -81,7 +81,7 @@ GameObject:
   - component: {fileID: 82860979829230870}
   - component: {fileID: 82860979825914036}
   - component: {fileID: 82860979827069190}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: decorative_wall_3_LOD0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -162,7 +162,7 @@ GameObject:
   - component: {fileID: 82860979829221014}
   - component: {fileID: 82860979825829032}
   - component: {fileID: 82860979826874000}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: decorative_wall_3_LOD1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -241,7 +241,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5654075086977590360}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Floor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -272,7 +272,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3360497117392570705}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: WestConnection
   m_TagString: Untagged
   m_Icon: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000, type: 0}
@@ -304,7 +304,7 @@ GameObject:
   - component: {fileID: 5657055784360505268}
   - component: {fileID: 5657055784359742542}
   - component: {fileID: 5657055784358697512}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: decorative_wall_4_computer_LOD1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -388,7 +388,7 @@ GameObject:
   - component: {fileID: 5657055784360585788}
   - component: {fileID: 5657055784359754818}
   - component: {fileID: 5657055784358666182}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: decorative_wall_4_computer_LOD0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -472,7 +472,7 @@ GameObject:
   - component: {fileID: 5657055784360586344}
   - component: {fileID: 5657055784354474296}
   - component: {fileID: 5657055784343620794}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: decorative_wall_4_computer (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -541,9 +541,9 @@ GameObject:
   m_Component:
   - component: {fileID: 6323504107592024637}
   - component: {fileID: 2757250841547756291}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: EndEast
-  m_TagString: Untagged
+  m_TagString: Room
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -578,8 +578,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   roomType: 5
-  width: 4
-  height: 4
   northConnection: {fileID: 0}
   eastConnection: {fileID: 0}
   southConnection: {fileID: 0}
@@ -589,6 +587,8 @@ MonoBehaviour:
   southConnected: 1
   westConnected: 0
   roomConnected: 0
+  bigRoomArmNr: 0
+  corridoorNr: 0
 --- !u!1 &7674221049084709563
 GameObject:
   m_ObjectHideFlags: 0
@@ -600,7 +600,7 @@ GameObject:
   - component: {fileID: 7674221049084400433}
   - component: {fileID: 7674221049087897235}
   - component: {fileID: 7674221049086693153}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: decorative_wall_3_LOD0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -681,7 +681,7 @@ GameObject:
   - component: {fileID: 7674221049084393649}
   - component: {fileID: 7674221049087818383}
   - component: {fileID: 7674221049086757047}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: decorative_wall_3_LOD1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -762,7 +762,7 @@ GameObject:
   - component: {fileID: 7674221049084401825}
   - component: {fileID: 7674221049090921491}
   - component: {fileID: 7674221049105282273}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: decorative_wall_3 (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -833,7 +833,7 @@ GameObject:
   - component: {fileID: 8398347949218902982}
   - component: {fileID: 8398347949217908812}
   - component: {fileID: 8398347949213690688}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: floor (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -927,7 +927,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7005855468285361414}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Walls
   m_TagString: Untagged
   m_Icon: {fileID: 0}

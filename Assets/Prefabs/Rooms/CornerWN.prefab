@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2123236824605439168}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Walls
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -44,7 +44,7 @@ GameObject:
   - component: {fileID: 631172709187877376}
   - component: {fileID: 631172709186879882}
   - component: {fileID: 631172709191115398}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: floor (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -140,7 +140,7 @@ GameObject:
   - component: {fileID: 1643466044129579367}
   - component: {fileID: 1643466044127387093}
   - component: {fileID: 1643466044150136103}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: decorative_wall_3 (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -210,7 +210,7 @@ GameObject:
   - component: {fileID: 1643466044129603959}
   - component: {fileID: 1643466044132995913}
   - component: {fileID: 1643466044131934577}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: decorative_wall_3_LOD1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -291,7 +291,7 @@ GameObject:
   - component: {fileID: 1643466044129581815}
   - component: {fileID: 1643466044133042005}
   - component: {fileID: 1643466044131608295}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: decorative_wall_3_LOD0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -371,9 +371,9 @@ GameObject:
   m_Component:
   - component: {fileID: 3138751315304107003}
   - component: {fileID: 6488901748157782725}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: CornerWN
-  m_TagString: Untagged
+  m_TagString: Room
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -418,6 +418,8 @@ MonoBehaviour:
   southConnected: 1
   westConnected: 1
   roomConnected: 0
+  bigRoomArmNr: 0
+  corridoorNr: 0
 --- !u!1 &3661262162798032782
 GameObject:
   m_ObjectHideFlags: 0
@@ -429,7 +431,7 @@ GameObject:
   - component: {fileID: 3661262162797749678}
   - component: {fileID: 3661262162800058622}
   - component: {fileID: 3661262162780489084}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: decorative_wall_4_computer (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -499,7 +501,7 @@ GameObject:
   - component: {fileID: 3661262162797700722}
   - component: {fileID: 3661262162796873096}
   - component: {fileID: 3661262162795828206}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: decorative_wall_4_computer_LOD1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -583,7 +585,7 @@ GameObject:
   - component: {fileID: 3661262162797749242}
   - component: {fileID: 3661262162796885380}
   - component: {fileID: 3661262162795861504}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: decorative_wall_4_computer_LOD0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -665,7 +667,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3956509829228038429}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: EastConnection
   m_TagString: Untagged
   m_Icon: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000, type: 0}
@@ -695,7 +697,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5975272406081224855}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: NorthConnection
   m_TagString: Untagged
   m_Icon: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000, type: 0}
@@ -725,7 +727,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3619138864358993310}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Floor
   m_TagString: Untagged
   m_Icon: {fileID: 0}

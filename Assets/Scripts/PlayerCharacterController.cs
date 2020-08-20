@@ -8,7 +8,7 @@ public class PlayerCharacterController: MonoBehaviour
     public static PlayerCharacterController Instance;
     //Movement
     [Header("Movement")]
-    Vector3 playerPosition;
+    public Vector3 playerPosition;
     Vector2 inputDir;
     Vector3 velocity;
     float runSpeed = 8;
@@ -31,6 +31,7 @@ public class PlayerCharacterController: MonoBehaviour
     float angle;
     float animationSpeedPercent;
 
+    private bool alive = true;
 
     // Weapons
     float pistolShootTimer = 0.5f;
@@ -41,8 +42,10 @@ public class PlayerCharacterController: MonoBehaviour
     Transform chest; // For rotating aiming animation
     Vector3 aimAnimOffset = new Vector3(15, 35, 15); // Best compromise of far and near target aiming rotation
     Quaternion aimRotation;
+    
 
     public static bool IsAiming { get => isAiming; set => isAiming = value; }
+    public bool Alive { get => alive; set => alive = value; }
 
     private void Awake()
     {

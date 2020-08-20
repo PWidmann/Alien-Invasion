@@ -1,5 +1,35 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &598302108847880362
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 66241295462180874}
+  m_Layer: 9
+  m_Name: WayPoint3
+  m_TagString: WayPoint
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &66241295462180874
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 598302108847880362}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -7.97, y: 0, z: 7.37}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4787690595735770516}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &818227763018355737
 GameObject:
   m_ObjectHideFlags: 0
@@ -12,7 +42,7 @@ GameObject:
   - component: {fileID: 818227763018355717}
   - component: {fileID: 818227763018355718}
   - component: {fileID: 818227763018355719}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: decorative_wall_5 (9)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -107,7 +137,7 @@ GameObject:
   - component: {fileID: 818227763296931187}
   - component: {fileID: 818227763296931188}
   - component: {fileID: 818227763296931189}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: decorative_wall_5 (10)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -190,6 +220,36 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 4, y: 4, z: 0.30411983}
   m_Center: {x: 0, y: 2, z: 0.15205976}
+--- !u!1 &932066758887504613
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8423054231262468705}
+  m_Layer: 9
+  m_Name: WayPoint2
+  m_TagString: WayPoint
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8423054231262468705
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 932066758887504613}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 9.77, y: 0, z: 8.4}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4787690595735770516}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1242277504496857150
 GameObject:
   m_ObjectHideFlags: 0
@@ -199,7 +259,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 857415943288113338}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Walls
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -242,7 +302,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5543176048588184091}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: SouthConnection
   m_TagString: Untagged
   m_Icon: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000, type: 0}
@@ -263,6 +323,40 @@ Transform:
   m_Father: {fileID: 4404083192700516225}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1500283050838205927
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4787690595735770516}
+  m_Layer: 9
+  m_Name: Waypoints
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4787690595735770516
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1500283050838205927}
+  m_LocalRotation: {x: -0, y: -0.7071068, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.49999988, y: 0.5, z: 0.49999988}
+  m_Children:
+  - {fileID: 8721253693769991748}
+  - {fileID: 24299232650646736}
+  - {fileID: 8423054231262468705}
+  - {fileID: 66241295462180874}
+  m_Father: {fileID: 4404083192700516225}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2185098874269482290
 GameObject:
   m_ObjectHideFlags: 0
@@ -275,7 +369,7 @@ GameObject:
   - component: {fileID: 2185098874266519162}
   - component: {fileID: 2185098874267516400}
   - component: {fileID: 2185098874263346940}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: floor (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -372,7 +466,7 @@ GameObject:
   - component: {fileID: 2803805047025480411}
   - component: {fileID: 2803805047026583889}
   - component: {fileID: 2803805047022365277}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: floor (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -469,7 +563,7 @@ GameObject:
   - component: {fileID: 3615200524092553317}
   - component: {fileID: 3615200524091425775}
   - component: {fileID: 3615200524087206115}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: floor (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -566,7 +660,7 @@ GameObject:
   - component: {fileID: 3660967482370803384}
   - component: {fileID: 3660967482369703218}
   - component: {fileID: 3660967482365468222}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: floor (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -663,7 +757,7 @@ GameObject:
   - component: {fileID: 3706384186980141506}
   - component: {fileID: 3706384186979030162}
   - component: {fileID: 3706384186983233652}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: decorative_wall_5 (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -757,7 +851,7 @@ GameObject:
   - component: {fileID: 3849379955470966111}
   - component: {fileID: 3849379955468702189}
   - component: {fileID: 3849379955454882079}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: decorative_wall_3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -827,7 +921,7 @@ GameObject:
   - component: {fileID: 3849379955470964431}
   - component: {fileID: 3849379955472264045}
   - component: {fileID: 3849379955472861919}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: decorative_wall_3_LOD0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -908,7 +1002,7 @@ GameObject:
   - component: {fileID: 3849379955470990671}
   - component: {fileID: 3849379955472285553}
   - component: {fileID: 3849379955473321289}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: decorative_wall_3_LOD1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -990,7 +1084,7 @@ GameObject:
   - component: {fileID: 4266697240299396680}
   - component: {fileID: 4266697240300381634}
   - component: {fileID: 4266697240304600782}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: floor (8)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1087,7 +1181,7 @@ GameObject:
   - component: {fileID: 4404083191456114080}
   - component: {fileID: 4404083191457226282}
   - component: {fileID: 4404083191461395750}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: floor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1182,9 +1276,9 @@ GameObject:
   m_Component:
   - component: {fileID: 4404083192700516225}
   - component: {fileID: 1666852130820507388}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: BreakRoomNorth
-  m_TagString: Untagged
+  m_TagString: Room
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -1204,6 +1298,8 @@ Transform:
   - {fileID: 2641542026255847908}
   - {fileID: 857415943288113338}
   - {fileID: 5671346289198302357}
+  - {fileID: 4787690595735770516}
+  - {fileID: 3496365442390998988}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1242,7 +1338,7 @@ GameObject:
   - component: {fileID: 4470905691837945442}
   - component: {fileID: 4470905691840781482}
   - component: {fileID: 4470905691840087336}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: decorative_wall_2_LOD0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1323,7 +1419,7 @@ GameObject:
   - component: {fileID: 4470905691837955804}
   - component: {fileID: 4470905691840799824}
   - component: {fileID: 4470905691839765122}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: decorative_wall_2_LOD1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1404,7 +1500,7 @@ GameObject:
   - component: {fileID: 4470905691837838794}
   - component: {fileID: 4470905691835544222}
   - component: {fileID: 4470905691858221992}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: decorative_wall_2 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1475,7 +1571,7 @@ GameObject:
   - component: {fileID: 4831468547370076433}
   - component: {fileID: 4831468547368965185}
   - component: {fileID: 4831468547364780199}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: decorative_wall_5 (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1570,7 +1666,7 @@ GameObject:
   - component: {fileID: 5371439164738311088}
   - component: {fileID: 5371439164737202234}
   - component: {fileID: 5371439164733033270}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: floor (7)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1664,7 +1760,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2641542026255847908}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Floor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1697,6 +1793,36 @@ Transform:
   m_Father: {fileID: 4404083192700516225}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &5637539602536848729
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 24299232650646736}
+  m_Layer: 9
+  m_Name: WayPoint1
+  m_TagString: WayPoint
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &24299232650646736
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5637539602536848729}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 12.66, y: 0, z: -4.87}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4787690595735770516}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5671346287843014907
 GameObject:
   m_ObjectHideFlags: 0
@@ -1709,7 +1835,7 @@ GameObject:
   - component: {fileID: 5671346287843014911}
   - component: {fileID: 5671346287843014910}
   - component: {fileID: 5671346287843014909}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: decorative_wall_5 (8)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1803,7 +1929,7 @@ GameObject:
   - component: {fileID: 5671346289020213961}
   - component: {fileID: 5671346289023047965}
   - component: {fileID: 5671346289022173943}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: decorative_wall_1_LOD1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1884,7 +2010,7 @@ GameObject:
   - component: {fileID: 5671346289020132935}
   - component: {fileID: 5671346289017982937}
   - component: {fileID: 5671346289006647859}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: decorative_wall_1 (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1954,7 +2080,7 @@ GameObject:
   - component: {fileID: 5671346289020203481}
   - component: {fileID: 5671346289023008935}
   - component: {fileID: 5671346289021948319}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: decorative_wall_1_LOD0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2033,7 +2159,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5671346289198302357}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Decoration
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2088,7 +2214,7 @@ GameObject:
   - component: {fileID: 5955088766517523433}
   - component: {fileID: 5955088766517523434}
   - component: {fileID: 5955088766517523435}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: decorative_wall_5 (6)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2183,7 +2309,7 @@ GameObject:
   - component: {fileID: 5955088766793236239}
   - component: {fileID: 5955088766793236224}
   - component: {fileID: 5955088766793236225}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: decorative_wall_5 (7)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2278,7 +2404,7 @@ GameObject:
   - component: {fileID: 5955088766937192937}
   - component: {fileID: 5955088766937192938}
   - component: {fileID: 5955088766937192939}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: floor (10)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2375,7 +2501,7 @@ GameObject:
   - component: {fileID: 5955088767460229211}
   - component: {fileID: 5955088767460229212}
   - component: {fileID: 5955088767460229213}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: floor (11)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2472,7 +2598,7 @@ GameObject:
   - component: {fileID: 5955088767805992373}
   - component: {fileID: 5955088767805992374}
   - component: {fileID: 5955088767805992375}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: floor (9)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2569,7 +2695,7 @@ GameObject:
   - component: {fileID: 5955088768537610560}
   - component: {fileID: 5955088768537610561}
   - component: {fileID: 5955088768537610562}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: decorative_wall_5 (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2664,7 +2790,7 @@ GameObject:
   - component: {fileID: 6262722208064515125}
   - component: {fileID: 6262722208065630565}
   - component: {fileID: 6262722208069819779}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: decorative_wall_5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2747,6 +2873,36 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 4, y: 4, z: 0.30411983}
   m_Center: {x: 0, y: 2, z: 0.15205976}
+--- !u!1 &6432054250988561333
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3496365442390998988}
+  m_Layer: 9
+  m_Name: AlienSpawn
+  m_TagString: AlienSpawn
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3496365442390998988
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6432054250988561333}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.196, z: 0}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_Children: []
+  m_Father: {fileID: 4404083192700516225}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6687030484000678800
 GameObject:
   m_ObjectHideFlags: 0
@@ -2759,7 +2915,7 @@ GameObject:
   - component: {fileID: 6687030484001790168}
   - component: {fileID: 6687030484002906962}
   - component: {fileID: 6687030484007059550}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: floor (6)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2856,7 +3012,7 @@ GameObject:
   - component: {fileID: 7191110707258669805}
   - component: {fileID: 7191110707259647933}
   - component: {fileID: 7191110707263834971}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: decorative_wall_5 (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2939,6 +3095,36 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 4, y: 4, z: 0.30411983}
   m_Center: {x: 0, y: 2, z: 0.15205976}
+--- !u!1 &7899156010648425518
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8721253693769991748}
+  m_Layer: 9
+  m_Name: WayPoint
+  m_TagString: WayPoint
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8721253693769991748
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7899156010648425518}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -7.93, y: 0, z: -8.19}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4787690595735770516}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &9124699797215948057
 GameObject:
   m_ObjectHideFlags: 0
@@ -2951,7 +3137,7 @@ GameObject:
   - component: {fileID: 9124699797214828113}
   - component: {fileID: 9124699797213720027}
   - component: {fileID: 9124699797217873623}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: floor (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3047,6 +3233,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: big_screen
       objectReference: {fileID: 0}
+    - target: {fileID: 152624, guid: 2e1b886e9f18d9e43bf1d35ceab0b368, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 490306, guid: 2e1b886e9f18d9e43bf1d35ceab0b368, type: 3}
       propertyPath: m_LocalPosition.x
       value: 5.819
@@ -3117,9 +3307,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5671346289198302357}
     m_Modifications:
+    - target: {fileID: 100524, guid: ce9f6338cd38cc242ae7ba54eb5ca686, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 109742, guid: ce9f6338cd38cc242ae7ba54eb5ca686, type: 3}
       propertyPath: m_Name
       value: decorative_chair (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 109742, guid: ce9f6338cd38cc242ae7ba54eb5ca686, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 195890, guid: ce9f6338cd38cc242ae7ba54eb5ca686, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 486698, guid: ce9f6338cd38cc242ae7ba54eb5ca686, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3195,6 +3397,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: hydroponic
       objectReference: {fileID: 0}
+    - target: {fileID: 189446, guid: 1759eacdee08e12408d757d50755a6d0, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 486616, guid: 1759eacdee08e12408d757d50755a6d0, type: 3}
       propertyPath: m_LocalPosition.x
       value: -5.09
@@ -3253,9 +3459,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5671346289198302357}
     m_Modifications:
+    - target: {fileID: 100524, guid: ce9f6338cd38cc242ae7ba54eb5ca686, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 109742, guid: ce9f6338cd38cc242ae7ba54eb5ca686, type: 3}
       propertyPath: m_Name
       value: decorative_chair (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 109742, guid: ce9f6338cd38cc242ae7ba54eb5ca686, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 195890, guid: ce9f6338cd38cc242ae7ba54eb5ca686, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 486698, guid: ce9f6338cd38cc242ae7ba54eb5ca686, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3327,9 +3545,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5671346289198302357}
     m_Modifications:
+    - target: {fileID: 100524, guid: ce9f6338cd38cc242ae7ba54eb5ca686, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 109742, guid: ce9f6338cd38cc242ae7ba54eb5ca686, type: 3}
       propertyPath: m_Name
       value: decorative_chair (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 109742, guid: ce9f6338cd38cc242ae7ba54eb5ca686, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 195890, guid: ce9f6338cd38cc242ae7ba54eb5ca686, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 486698, guid: ce9f6338cd38cc242ae7ba54eb5ca686, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3401,9 +3631,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5671346289198302357}
     m_Modifications:
+    - target: {fileID: 100524, guid: ce9f6338cd38cc242ae7ba54eb5ca686, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 109742, guid: ce9f6338cd38cc242ae7ba54eb5ca686, type: 3}
       propertyPath: m_Name
       value: decorative_chair
+      objectReference: {fileID: 0}
+    - target: {fileID: 109742, guid: ce9f6338cd38cc242ae7ba54eb5ca686, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 195890, guid: ce9f6338cd38cc242ae7ba54eb5ca686, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 486698, guid: ce9f6338cd38cc242ae7ba54eb5ca686, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3479,6 +3721,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: shelf
       objectReference: {fileID: 0}
+    - target: {fileID: 179106, guid: db49253e161c21440b7ccf6d59865098, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 494348, guid: db49253e161c21440b7ccf6d59865098, type: 3}
       propertyPath: m_LocalPosition.x
       value: 5.9
@@ -3537,9 +3783,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5671346289198302357}
     m_Modifications:
+    - target: {fileID: 100524, guid: ce9f6338cd38cc242ae7ba54eb5ca686, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 109742, guid: ce9f6338cd38cc242ae7ba54eb5ca686, type: 3}
       propertyPath: m_Name
       value: decorative_chair (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 109742, guid: ce9f6338cd38cc242ae7ba54eb5ca686, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 195890, guid: ce9f6338cd38cc242ae7ba54eb5ca686, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 486698, guid: ce9f6338cd38cc242ae7ba54eb5ca686, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3615,6 +3873,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: light_wall_3 (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 116758, guid: 10b4213a276bd0f4d93c345fd1420858, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 173154, guid: 10b4213a276bd0f4d93c345fd1420858, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 464102, guid: 10b4213a276bd0f4d93c345fd1420858, type: 3}
       propertyPath: m_LocalPosition.x
       value: 5.842
@@ -3676,6 +3942,14 @@ PrefabInstance:
     - target: {fileID: 116758, guid: 10b4213a276bd0f4d93c345fd1420858, type: 3}
       propertyPath: m_Name
       value: light_wall_3 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 116758, guid: 10b4213a276bd0f4d93c345fd1420858, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 173154, guid: 10b4213a276bd0f4d93c345fd1420858, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 464102, guid: 10b4213a276bd0f4d93c345fd1420858, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3739,6 +4013,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: decorative_plant
       objectReference: {fileID: 0}
+    - target: {fileID: 198716, guid: 83a919b0e630c394780833b59a51ab4f, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 464268, guid: 83a919b0e630c394780833b59a51ab4f, type: 3}
       propertyPath: m_LocalPosition.x
       value: 5.22
@@ -3800,6 +4078,10 @@ PrefabInstance:
     - target: {fileID: 110680, guid: 7dd02c12b2c21ff49aa148934b3c1395, type: 3}
       propertyPath: m_Name
       value: decorative_plant_desk
+      objectReference: {fileID: 0}
+    - target: {fileID: 110680, guid: 7dd02c12b2c21ff49aa148934b3c1395, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 403136, guid: 7dd02c12b2c21ff49aa148934b3c1395, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3875,6 +4157,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: bunk_bed (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 192520, guid: 9efb87eb649319c4c8c3a954a74df462, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 469024, guid: 9efb87eb649319c4c8c3a954a74df462, type: 3}
       propertyPath: m_LocalPosition.x
       value: 5.97
@@ -3949,6 +4235,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: light_wall_3_blue (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 121986, guid: 8b5797a18349fb546be8acddc71151ff, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 135472, guid: 8b5797a18349fb546be8acddc71151ff, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 405920, guid: 8b5797a18349fb546be8acddc71151ff, type: 3}
       propertyPath: m_LocalPosition.x
       value: -1.165
@@ -4007,9 +4301,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5671346289198302357}
     m_Modifications:
+    - target: {fileID: 100274, guid: e4362215d2f4b974a9729be40db2af84, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 115212, guid: e4362215d2f4b974a9729be40db2af84, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 120334, guid: e4362215d2f4b974a9729be40db2af84, type: 3}
       propertyPath: m_Name
       value: decorative_sofa
+      objectReference: {fileID: 0}
+    - target: {fileID: 120334, guid: e4362215d2f4b974a9729be40db2af84, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 422434, guid: e4362215d2f4b974a9729be40db2af84, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4081,9 +4387,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5671346289198302357}
     m_Modifications:
+    - target: {fileID: 100524, guid: ce9f6338cd38cc242ae7ba54eb5ca686, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 109742, guid: ce9f6338cd38cc242ae7ba54eb5ca686, type: 3}
       propertyPath: m_Name
       value: decorative_chair (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 109742, guid: ce9f6338cd38cc242ae7ba54eb5ca686, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 195890, guid: ce9f6338cd38cc242ae7ba54eb5ca686, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 486698, guid: ce9f6338cd38cc242ae7ba54eb5ca686, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4159,6 +4477,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: light_wall_3_blue
       objectReference: {fileID: 0}
+    - target: {fileID: 121986, guid: 8b5797a18349fb546be8acddc71151ff, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 135472, guid: 8b5797a18349fb546be8acddc71151ff, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 405920, guid: 8b5797a18349fb546be8acddc71151ff, type: 3}
       propertyPath: m_LocalPosition.x
       value: 5.79
@@ -4220,6 +4546,10 @@ PrefabInstance:
     - target: {fileID: 184930, guid: 6ffa7d55296318341acf5521f4bbae00, type: 3}
       propertyPath: m_Name
       value: table_2
+      objectReference: {fileID: 0}
+    - target: {fileID: 184930, guid: 6ffa7d55296318341acf5521f4bbae00, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 450284, guid: 6ffa7d55296318341acf5521f4bbae00, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4291,9 +4621,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5671346289198302357}
     m_Modifications:
+    - target: {fileID: 100524, guid: ce9f6338cd38cc242ae7ba54eb5ca686, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 109742, guid: ce9f6338cd38cc242ae7ba54eb5ca686, type: 3}
       propertyPath: m_Name
       value: decorative_chair (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 109742, guid: ce9f6338cd38cc242ae7ba54eb5ca686, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 195890, guid: ce9f6338cd38cc242ae7ba54eb5ca686, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 486698, guid: ce9f6338cd38cc242ae7ba54eb5ca686, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4369,6 +4711,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: bunk_bed
       objectReference: {fileID: 0}
+    - target: {fileID: 192520, guid: 9efb87eb649319c4c8c3a954a74df462, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 469024, guid: 9efb87eb649319c4c8c3a954a74df462, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0
@@ -4443,6 +4789,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: light_wall_3
       objectReference: {fileID: 0}
+    - target: {fileID: 116758, guid: 10b4213a276bd0f4d93c345fd1420858, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 173154, guid: 10b4213a276bd0f4d93c345fd1420858, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 464102, guid: 10b4213a276bd0f4d93c345fd1420858, type: 3}
       propertyPath: m_LocalPosition.x
       value: -5.82
@@ -4504,6 +4858,14 @@ PrefabInstance:
     - target: {fileID: 116758, guid: 10b4213a276bd0f4d93c345fd1420858, type: 3}
       propertyPath: m_Name
       value: light_wall_3 (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 116758, guid: 10b4213a276bd0f4d93c345fd1420858, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 173154, guid: 10b4213a276bd0f4d93c345fd1420858, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 464102, guid: 10b4213a276bd0f4d93c345fd1420858, type: 3}
       propertyPath: m_LocalPosition.x

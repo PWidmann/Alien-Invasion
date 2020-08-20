@@ -13,6 +13,10 @@ public class MapGenerator : MonoBehaviour
     [Range(0, 100)]
     public int enemySpawnChance = 50;
 
+    [Header("Alien Prefab")]
+    public GameObject alienPrefab;
+    public GameObject[] alienSpawns;
+
 
     [Header("Room Prefabs")]
     public GameObject startRoom;
@@ -43,8 +47,9 @@ public class MapGenerator : MonoBehaviour
     [Header("Level Object")]
     public GameObject levelObject;
     [HideInInspector]
-    //public NavMeshSurface levelMeshSurface;
+    public NavMeshSurface levelMeshSurface;
     private GameObject tempRoomObject;
+    private bool navMeshBuilt = false;
 
     Room currentRoom;
 
@@ -66,7 +71,7 @@ public class MapGenerator : MonoBehaviour
         //levelMeshSurface = levelObject.GetComponent<NavMeshSurface>();
 
         currentRoom = startRoom.GetComponent<Room>();
-
+        levelMeshSurface = levelObject.GetComponent<NavMeshSurface>();
         StartGeneratingDungeon();
     }
 
@@ -83,6 +88,14 @@ public class MapGenerator : MonoBehaviour
         else
         {
             CreateConnection();
+        }
+
+        // Build nav mesh when level is finished building
+        if (roomsToConnect.Count == 0 && !navMeshBuilt)
+        {
+            levelMeshSurface.BuildNavMesh();
+            navMeshBuilt = true;
+            SpawnEnemies();
         }
     }
 
@@ -203,13 +216,13 @@ public class MapGenerator : MonoBehaviour
                     }
                     else
                     {
-                        //turn corridor to the north if the first horizontal level arm
+                        //turn corridor to the north if it's the first horizontal room arm
                         if (currentRoom.bigRoomArmNr == 1)
                         {
                             SpawnRoom(Room.RoomType.CornerWN, direction);
                         }
 
-                        //turn corridor to the south if last horizontal room arm
+                        //turn corridor to the south if it's the last horizontal room arm
                         if (currentRoom.bigRoomArmNr == bigRooms)
                         {
                             SpawnRoom(Room.RoomType.CornerWS, direction);
@@ -270,7 +283,7 @@ public class MapGenerator : MonoBehaviour
                 {
                     if (currentRoom.bigRoomArmNr == 0 || currentRoom.roomType == Room.RoomType.BigRoomCross)
                     {
-                        // Here should spawn the boss room
+                        // Spawn boss room
                         SpawnRoom(Room.RoomType.BossRoom, direction);
                     }
                     else
@@ -458,6 +471,22 @@ public class MapGenerator : MonoBehaviour
         
         roomsToConnect.Add(tempRoomObject.GetComponent<Room>());
         roomsCreated++;
+    }
+
+    public void SpawnEnemies()
+    {
+        if (navMeshBuilt)
+        {
+            alienSpawns = GameObject.FindGameObjectsWithTag("AlienSpawn");
+
+            foreach (GameObject spawn in alienSpawns)
+            {
+                int rnd = Random.Range(0, 101);
+
+                if (rnd > (100 - enemySpawnChance))
+                    Instantiate(alienPrefab, spawn.transform.position, Quaternion.Euler(0, Random.Range(0, 360), 0));
+            }
+        }
     }
 
     void CountRoom(Room currentRoom, Room tempRoom)

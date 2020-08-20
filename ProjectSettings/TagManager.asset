@@ -9,6 +9,8 @@ TagManager:
   - AlienBody
   - AlienHead
   - RoomCollider
+  - AlienSpawn
+  - Room
   layers:
   - Default
   - TransparentFX
@@ -19,7 +21,7 @@ TagManager:
   - 
   - 
   - Floor
-  - 
+  - NavMesh
   - 
   - 
   - 
