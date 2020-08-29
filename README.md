@@ -1,2 +1,2 @@
-# Alien-Invasion
-Save the village!
+# AlienShip
+Destroy the AlienShip
